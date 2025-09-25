@@ -1,0 +1,100 @@
+================================================================================
+Bu program ile kaydedilmiş KNN modeli kullanılarak yeni veriler üzerinde tahmin yapılacaktır.
+Yeni veriler 'new_customers.csv' dosyasından okunacaktır.
+Tahminler 'knn_model_predictions.csv' dosyasına kaydedilecektir.
+Program için knn_model.pickle ve knn_scaler.pickle dosyalarının 'ML_knn_classification.py' programı ile üretilmiş olması gerekmektedir.
+================================================================================
+
+ ➡️  Yeni müşteri verisi:
+   Gender  Age  Salary  Product ID  Price
+0    Male   24   38652           3   4446
+1  Female   47   64727           1   5188
+2    Male   46   54648           1   6193
+3    Male   31   20018           3   4779
+4    Male   58   77731           2   6855
+5    Male   28   55478           1   6153
+6  Female   48   54211           2   7588
+7    Male   31   60076           3   5238
+8  Female   42   29290           1   5418
+9    Male   50   21445           1   5598
+
+ ➡️  Yeni müşteri verisindeki cinsiyet sütununun 0/1'e çevrilmiş hali:
+    Male
+0   True
+1  False
+2   True
+3   True
+4   True
+
+ ➡️  Yeni müşteri verisi (cinsiyet sütunu eklendikten sonra):
+   Gender  Age  Salary  Product ID  Price   Male
+0    Male   24   38652           3   4446   True
+1  Female   47   64727           1   5188  False
+2    Male   46   54648           1   6193   True
+3    Male   31   20018           3   4779   True
+4    Male   58   77731           2   6855   True
+5    Male   28   55478           1   6153   True
+6  Female   48   54211           2   7588  False
+7    Male   31   60076           3   5238   True
+8  Female   42   29290           1   5418  False
+9    Male   50   21445           1   5598   True
+
+ ➡️  Yeni müşteri verisinin numpy dizisi hali:
+[[True 24 38652 4446]
+ [False 47 64727 5188]
+ [True 46 54648 6193]
+ [True 31 20018 4779]
+ [True 58 77731 6855]
+ [True 28 55478 6153]
+ [False 48 54211 7588]
+ [True 31 60076 5238]
+ [False 42 29290 5418]
+ [True 50 21445 5598]]
+
+ ➡️  Yeni müşteri verisinin ölçeklendirilmiş hali:
+[[ 9.13708042e-01 -1.23735549e+00 -8.13850960e-01 -7.91009674e-04]
+ [-1.09444150e+00  3.56549649e-01  2.96158653e-01  3.90495109e-01]
+ [ 9.13708042e-01  2.87249425e-01 -1.32903164e-01  9.20471591e-01]
+ [ 9.13708042e-01 -7.52253923e-01 -1.60709810e+00  1.74813138e-01]
+ [ 9.13708042e-01  1.11885210e+00  8.49737368e-01  1.26957053e+00]
+ [ 9.13708042e-01 -9.60154593e-01 -9.75701642e-02  8.99377999e-01]
+ [-1.09444150e+00  4.25849872e-01 -1.51506202e-01  1.65611059e+00]
+ [ 9.13708042e-01 -7.52253923e-01  9.81661426e-02  4.16862098e-01]
+ [-1.09444150e+00  1.00485324e-02 -1.21239017e+00  5.11783259e-01]
+ [ 9.13708042e-01  5.64450318e-01 -1.54635088e+00  6.06704420e-01]]
+
+🔍 Ölçeklenmiş verilerin istatistikleri:
+Ortalama: [ 0.31126318 -0.0939018  -0.43176075  0.68453977]
+Standart sapma: [0.92024973 0.73878719 0.78176548 0.48078544]
+
+ ➡️  Yeni müşteri verisi için tahminler (0: satın almadı, 1: satın aldı):
+[0 0 0 0 0 0 0 0 0 0]
+
+ ➡️  Yeni müşteri verisi (tahminler eklendikten sonra):
+   Gender  Age  Salary  Product ID  Price   Male  will_purchase
+0    Male   24   38652           3   4446   True              0
+1  Female   47   64727           1   5188  False              0
+2    Male   46   54648           1   6193   True              0
+3    Male   31   20018           3   4779   True              0
+4    Male   58   77731           2   6855   True              0
+5    Male   28   55478           1   6153   True              0
+6  Female   48   54211           2   7588  False              0
+7    Male   31   60076           3   5238   True              0
+8  Female   42   29290           1   5418  False              0
+9    Male   50   21445           1   5598   True              0
+
+ ➡️  Tahminler 'knn_model_predictions.csv' dosyasına kaydedildi.
+
+ 🟢 🟡 🔴  Tek bir yeni müşteri verisi üzerinde tahmin yapma örneği:
+
+ ➡️  Tek bir yeni müşteri verisi:
+   Male  Age  Salary  Price
+0     1   32   40000   5000
+
+ ➡️  Tek bir yeni müşteri verisinin ölçeklendirilmiş hali:
+[[ 0.91370804 -0.6829537  -0.75646676  0.29135523]]
+
+ ➡️  Tek bir yeni müşteri verisi için tahmin (0: satın almadı, 1: satın aldı):
+[1]
+
+ ✅  İşlem tamamlandı.

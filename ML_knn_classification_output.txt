@@ -1,0 +1,86 @@
+================================================================================
+🟢 Bu program ile KNN sınıflandırma modeli oluşturulacak ve eğitilecektir.
+🟢 Veri seti 'purchase_history.csv' dosyasından okunacaktır.
+🟢 Eğitilen model ve scaler verileri 'knn_model.pickle' ve 'knn_scaler.pickle' isimleriyle kaydedilecektir.
+================================================================================ 
+
+🟠 Veri Seti Boyutu: 1000 satır, 7 sütun
+➡️  Veri seti ilk 5 satır ==============================
+   Customer ID  Gender  Age  Salary Product ID  Price  Purchased
+0            1  Female   49   61000        P01   2000          1
+1            2    Male   36   30000        P02   2000          1
+2            3  Female   26   81000        P02   3500          1
+3            4  Female   32   74000        P01   7000          0
+4            5  Female   42   56000        P01   5000          0
+
+ ➡️  Cinsiyet sütunu ==============================
+   Female   Male
+0    True  False
+1   False   True
+2    True  False
+3    True  False
+4    True  False
+
+ ➡️  Cinsiyet sütununun 0/1'e çevrilmiş hali: ==============================
+    Male
+0  False
+1   True
+2  False
+3  False
+4  False
+
+ ➡️  Cinsiyet sütunu eklendikten sonra veri seti: ==============================
+   Customer ID  Gender  Age  Salary Product ID  Price  Purchased   Male
+0            1  Female   49   61000        P01   2000          1  False
+1            2    Male   36   30000        P02   2000          1   True
+2            3  Female   26   81000        P02   3500          1  False
+3            4  Female   32   74000        P01   7000          0  False
+4            5  Female   42   56000        P01   5000          0  False
+
+ ➡️  Veri setinin numpy dizisi hali: ==============================
+Başlıklar: 'Male','Age','Salary','Price'
+[[False 49 61000 2000]
+ [True 36 30000 2000]
+ [False 26 81000 3500]
+ [False 32 74000 7000]
+ [False 42 56000 5000]]
+
+ ➡️  Satın alma sonuçları 'Purchased' dizisi: ==============================
+[1 1 1 0 0]
+
+ ➡️  Eğitim ve test verilerinin boyutları:
+x_train boyutu:  800
+x_test boyutu :  200
+
+Train Verisi - ilk 5 Satır:
+ [[True 26 28000 5000]
+ [True 54 21000 7000]
+ [False 42 22000 5000]
+ [True 37 22000 5000]
+ [False 48 75000 3500]]
+
+Test Verisi  - ilk 5 Satır:
+ [[True 54 36000 5000]
+ [False 54 60000 7000]
+ [True 25 39000 2000]
+ [False 39 38000 7000]
+ [True 28 37000 5000]]
+
+ ➡️  Ölçeklendirilmiş x_train verisi:
+ [[ 1.08347268 -1.09076887 -1.30749141  0.30934614]
+ [ 1.08347268  0.97668947 -1.60377078  1.39955279]
+ [-0.92295821  0.0906359  -1.56144515  0.30934614]
+ [ 1.08347268 -0.27855309 -1.56144515  0.30934614]
+ [-0.92295821  0.53366268  0.68181289 -0.50830885]]
+
+ ✨  KNN Modeli eğitildi.
+
+ ➡️  Test verisi için gerçek değerler:
+ [0 0 1 0 1 0 0 0 0 0 0 0 0 1 1]
+
+ ➡️  Test verisi için tahminler:
+ [1 0 0 0 0 1 0 0 0 0 0 0 0 1 1]
+
+ ➡️  Test verisi için doğruluk skoru: 0.765
+
+ ➡️  Model ve scaler verileri 'knn_model.pickle' ve 'knn_scaler.pickle' dosyalarına kaydedildi.

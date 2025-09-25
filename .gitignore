@@ -1,0 +1,34 @@
+# İstenmeyen dosya türleri
+*.bat
+*.exe
+*.db
+*.json
+*.url
+*.zip
+
+# Klasörler
+__pycache__/
+temp/
+TEMP/
+
+# Ayar ve log dosyaları
+*.log
+*.cfg
+*.ini
+settings.*
+config.*
+
+# Python derlenmiş dosyaları
+*.pyc
+*.pyo
+*.pyd
+
+# IDE dosyaları
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Geçici dosyalar
+*.tmp
+*.temp
