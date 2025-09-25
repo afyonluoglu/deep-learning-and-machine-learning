@@ -32,3 +32,6 @@ config.*
 # Geçici dosyalar
 *.tmp
 *.temp
+
+# İşlem raporları (sadece yerel)
+işlemler.md
