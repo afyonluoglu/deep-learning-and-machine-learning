@@ -17,7 +17,7 @@ This repository contains a Python script (`Deep Learning.py`) designed for train
 
 ## Requirements
 
-✨Program automatically installs missing libraries. In order to install them naually, please follow the instructions below:
+✨Program automatically installs missing libraries. In order to install them maually, please follow the instructions below:
 ### Python Libraries
 
 Install the required libraries using pip:
