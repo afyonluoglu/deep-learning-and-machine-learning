@@ -1,10 +1,96 @@
+"""
+Deep Learning Eğitim Programı - Otomatik Kütüphane Yükleyici ile
+Hazırlayan: Dr. Mustafa AFYONLUOĞLU - Eylül 2025 (https://afyonluoglu.org/)
+
+Bu program gerekli kütüphaneleri otomatik olarak kontrol eder ve eksik olanları yükler.
+Desteklenen kütüphaneler:
+- numpy: Sayısal hesaplamalar için
+- pandas: Veri analizi için
+- tensorflow: Derin öğrenme modelleri için
+- matplotlib: Grafik çizimleri için
+- scikit-learn: Makine öğrenmesi yardımcıları için
+- pygame: Sistem bilgileri için (opsiyonel)
+
+Program çalışmadan önce tüm gerekli kütüphaneleri kontrol edip eksikleri otomatik yükler.
+"""
+
 import os
+import subprocess
+import sys
 from stat import FILE_ATTRIBUTE_ARCHIVE
 from time import time
 
-from pygame import ver
-os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"  # pygame mesajlarını gizle
+# Kütüphane yükleme fonksiyonu
+def install_and_import(package_name, import_name=None):
+    """
+    Kütüphane yüklü değilse otomatik olarak yükler
+    Args:
+        package_name (str): pip ile yüklenecek paket adı
+        import_name (str): import ifadesinde kullanılacak modül adı
+    """
+    if import_name is None:
+        import_name = package_name
+    
+    try:
+        __import__(import_name)
+        print(f"✅ {package_name} kütüphanesi zaten yüklü")
+        return True
+    except ImportError:
+        print(f"⚠️  {package_name} kütüphanesi bulunamadı. Yükleniyor...")
+        try:
+            # pip güncellemesi ve yükleme
+            subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"], 
+                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
+            print(f"✅ {package_name} başarıyla yüklendi!")
+            return True
+        except subprocess.CalledProcessError as e:
+            print(f"❌ {package_name} yüklenirken hata oluştu: {e}")
+            return False
+        except Exception as e:
+            print(f"❌ Beklenmedik hata: {e}")
+            return False
+
+# Gerekli kütüphaneleri kontrol et ve yükle
+required_packages = [
+    ("numpy", "numpy"),
+    ("pandas", "pandas"), 
+    ("tensorflow", "tensorflow"),
+    ("matplotlib", "matplotlib"),
+    ("scikit-learn", "sklearn"),
+    ("pygame", "pygame")
+]
+
+print("📦 Gerekli kütüphaneler kontrol ediliyor...")
+print("-" * 50)
+
+failed_packages = []
+for package, import_name in required_packages:
+    success = install_and_import(package, import_name)
+    if not success:
+        failed_packages.append(package)
+
+if failed_packages:
+    print(f"\n❌ Şu kütüphaneler yüklenemedi: {', '.join(failed_packages)}")
+    print("Lütfen manuel olarak yüklemeyi deneyiniz:")
+    for pkg in failed_packages:
+        print(f"   pip install {pkg}")
+    print("\nProgram devam edecek ancak bazı özellikler çalışmayabilir.")
+    input("Devam etmek için ENTER tuşuna basınız...")
+else:
+    print("🚀 Tüm kütüphaneler hazır! Program başlatılıyor...")
+    
+print("-" * 50, "\n")
+
+# Kütüphaneleri import et
+try:
+    from pygame import ver
+    os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"  # pygame mesajlarını gizle
+except ImportError:
+    pass
+
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'        # tensorflow uyarılarını gizle
+
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -82,7 +168,12 @@ TERMINAL_COLOR_RESET = "\033[0m"
 
 
 def draw_graphs(history):
-    import matplotlib.pyplot as plt
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        print("⚠️  matplotlib kütüphanesi bulunamadı. Yükleniyor...")
+        install_and_import("matplotlib", "matplotlib")
+        import matplotlib.pyplot as plt
     
     # Tüm grafikleri aynı ekranda göster
     plt.figure(figsize=(15, 6))
@@ -268,12 +359,24 @@ print(dataset.describe().T)
 print("="*50)
 
 # X ve Y verilerinin train ve test olarak ayrılması (%80 train %20 test)
-from sklearn.model_selection import train_test_split
+try:
+    from sklearn.model_selection import train_test_split
+except ImportError:
+    print("⚠️  scikit-learn kütüphanesi bulunamadı. Yükleniyor...")
+    install_and_import("scikit-learn", "sklearn")
+    from sklearn.model_selection import train_test_split
+    
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size =TEST_SPLIT, random_state=42)
 
 # Kategorik ve sayısal sütunları işle
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from sklearn.compose import ColumnTransformer
+try:
+    from sklearn.preprocessing import OneHotEncoder, StandardScaler
+    from sklearn.compose import ColumnTransformer
+except ImportError:
+    print("⚠️  scikit-learn kütüphanesi bulunamadı. Yükleniyor...")
+    install_and_import("scikit-learn", "sklearn")
+    from sklearn.preprocessing import OneHotEncoder, StandardScaler
+    from sklearn.compose import ColumnTransformer
 
 if FILENAME == DATAFILE_CLASSIFICATION:
     # 'Gender' ve 'Product ID' sütunlarını one-hot encode et
