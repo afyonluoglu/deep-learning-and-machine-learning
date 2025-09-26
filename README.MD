@@ -1,53 +1,78 @@
-# Deep Learning Training Program
+# Deep Learning Education Platform / Derin Öğrenme Eğitim Platformu
 
-This repository contains a Python script (`Deep Learning.py`) designed for training deep learning models using TensorFlow and Keras. The script supports both classification and regression tasks, with configurable parameters for model architecture, optimization, and training.
+Bu repository, TensorFlow ve Keras kullanarak derin öğrenme modellerini eğitmek için tasarlanmış kapsamlı bir eğitim platformu içerir. Program hem sınıflandırma hem de regresyon görevlerini destekler ve Deep Learning öğrenmek isteyenler için interaktif eğitici araçlar sunar.
 
-## Features
+## 🎯 Eğitici Özellikler
 
-- **Supports Classification and Regression**: Automatically adjusts the model and loss function based on the dataset type.
-- **Customizable Parameters**: Easily configure the number of layers, neurons, activation functions, optimizers, and more.
-- **Early Stopping**: Stops training when the validation loss stops improving.
-- **Data Preprocessing**: Includes one-hot encoding, scaling, and train-test splitting.
-- **Visualization**: Generates detailed graphs for training metrics (accuracy, loss, etc.).
-- **Example Datasets**:
-  - `knn_purchase_history.csv` for classification.
-  - `california_housing.csv` for regression.
+### 📚 **Tutorial Modu**
+- Sinir ağı temellerini adım adım açıklar
+- Nöronlar, aktivasyon fonksiyonları ve eğitim süreci hakkında detaylı bilgi
+- İnteraktif örnekler ve görsel açıklamalar
 
----
+### 🔧 **Hiperparametre Optimizasyonu Rehberi**  
+- Yeni başlayanlar için parametre önerileri
+- Her parametrenin model üzerindeki etkilerinin açıklaması
+- Otomatik parametre karşılaştırma testleri
 
-## Requirements
+### 📊 **Model Karşılaştırma Aracı**
+- Farklı model mimarilerini karşılaştırma
+- Overfitting, yakınsama hızı ve kararlılık analizi
+- Görsel dashboard ile performans değerlendirme
 
-✨Program automatically installs missing libraries. In order to install them maually, please follow the instructions below:
-### Python Libraries
+### 🔍 **Veri Analizi ve Ön İşleme Rehberi**
+- Otomatik veri kalitesi analizi
+- Eksik değer ve aykırı değer tespiti
+- Veri görselleştirme ve korelasyon analizi
+- Kişiselleştirilmiş ön işleme kodu üretimi
 
-Install the required libraries using pip:
+## ⭐ Temel Özellikler
+
+- **Sınıflandırma ve Regresyon Desteği**: Model ve kayıp fonksiyonunu veri setine göre otomatik ayarlar
+- **Özelleştirilebilir Parametreler**: Katman sayısı, nöron sayısı, aktivasyon fonksiyonları ve daha fazlası
+- **Erken Durdurma**: Validation loss iyileşmediğinde eğitimi otomatik durdurur
+- **Veri Ön İşleme**: One-hot encoding, scaling ve train-test ayrımı
+- **Görselleştirme**: Eğitim metrikleri için detaylı grafikler
+- **Otomatik Kütüphane Yükleme**: Eksik kütüphaneleri otomatik tespit eder ve yükler
+
+## 📦 Gereksinimler
+
+✨ Program eksik kütüphaneleri otomatik olarak yükler. Manuel yükleme için aşağıdaki talimatları izleyebilirsiniz:
+
+### Python Kütüphaneleri
 
 ```bash
-pip install numpy pandas tensorflow scikit-learn matplotlib
+pip install numpy pandas tensorflow scikit-learn matplotlib seaborn pygame
 ```
 
-### TensorFlow Version
+### TensorFlow Sürümü
 
-- Recommended TensorFlow version: `2.11` or lower (for GPU support).
+- GPU desteği için önerilen TensorFlow sürümü: `2.11` veya daha düşük
 
----
+## 🚀 Kullanım
 
-## Usage
+### 1. Veri Seti Hazırlama
 
-### 1. Dataset Preparation
+Gerekli veri setlerinin script ile aynı dizinde bulunduğundan emin olun:
+- `knn_purchase_history.csv` (sınıflandırma görevleri için)
+- `california_housing.csv` (regresyon görevleri için)
 
-Ensure the required datasets are available in the same directory as the script:
-- `knn_purchase_history.csv` (for classification tasks).
-- `california_housing.csv` (for regression tasks).
-
-Alternatively, you can modify the script to load datasets from other locations.
-
-### 2. Running the Script
-
-Run the script using Python:
+### 2. Programı Çalıştırma
 
 ```bash
 python "Deep Learning.py"
+```
+
+### 3. Menü Seçenekleri
+
+Program çalıştırıldığında şu seçeneklerle karşılaşacaksınız:
+
+1. **Model Eğitimi (Classification)** - Sınıflandırma modeli eğitimi
+2. **Model Eğitimi (Regression)** - Regresyon modeli eğitimi  
+3. **📚 Tutorial Modu** - Deep Learning kavramlarını öğrenin
+4. **🔧 Hiperparametre Rehberi** - Parametre optimizasyonu öğrenin
+5. **📊 Model Karşılaştırma** - Farklı modelleri karşılaştırın
+6. **🔍 Veri Analizi Rehberi** - Veri ön işleme öğrenin
+7. **⚙️ Gelişmiş Ayarlar** - Model parametrelerini özelleştirin
 ```
 
 ### 3. Selecting the Task

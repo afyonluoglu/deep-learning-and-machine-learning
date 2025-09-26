@@ -58,6 +58,7 @@ required_packages = [
     ("tensorflow", "tensorflow"),
     ("matplotlib", "matplotlib"),
     ("scikit-learn", "sklearn"),
+    ("seaborn", "seaborn"),  # Veri görselleştirme için
     ("pygame", "pygame")
 ]
 
@@ -313,20 +314,102 @@ if not tf.config.list_physical_devices('GPU'):
 # internetten indirmek için:
 # dataset = pd.read_csv("https://raw.githubusercontent.com/futurexskill/projects/refs/heads/main/knn-classification/purchase_history.csv")
 
-print("\n", TERMINAL_COLOR_BLUE,"--- Veri seti seçenekleri:","-"*42,TERMINAL_COLOR_RESET)
-print(f"   1 - Sınıflandırma - Classification      ({DATAFILE_CLASSIFICATION})")
-print(f"   2 - Regresyon - Regression              ({DATAFILE_REGRESSION})")
-print(f"Default: {DATAFILE_CLASSIFICATION} (1)")
+print("\n", TERMINAL_COLOR_BLUE,"--- Ana Menü:","-"*55,TERMINAL_COLOR_RESET)
+print("🎯  Deep Learning Eğitim Seçenekleri:")
+print("   1 - Model Eğitimi (Classification)")
+print("   2 - Model Eğitimi (Regression)")
+print("   3 - 📚 Tutorial Modu (Deep Learning Kavramları)")
+print("   4 - 🔧 Hiperparametre Optimizasyonu Rehberi")  
+print("   5 - 📊 Model Karşılaştırma Aracı")
+print("   6 - 🔍 Veri Analizi ve Ön İşleme Rehberi")
+print("   7 - ⚙️  Gelişmiş Ayarlar")
+print(f"   Default: Model Eğitimi - Classification ({DATAFILE_CLASSIFICATION})")
 print("="*70)
-print("Seçiminize göre model oluşturulacak ve eğitilecektir.")
+print("Seçiminizi yapın:")
 secim = input("Seçiminiz (E: exit): ")
 
 if secim == "e" or secim == "E":
     exit()
-elif secim == "2":
+elif secim == "3":
+    # Tutorial modu
+    try:
+        from tutorial_mode import start_tutorial
+        start_tutorial()
+        exit()
+    except ImportError:
+        print("❌ Tutorial modülü bulunamadı. tutorial_mode.py dosyasının mevcut olduğundan emin olun.")
+        input("Devam etmek için ENTER tuşuna basınız...")
+elif secim == "4":
+    # Hiperparametre rehberi
+    try:
+        from hyperparameter_guide import HyperparameterTuner
+        tuner = HyperparameterTuner()
+        print("🔧 HİPERPARAMETRE OPTİMİZASYONU REHBERİ")
+        choice = input("""
+1. Başlangıç parametreleri önerilerini gör
+2. Parametre etkilerini öğren  
+Seçiminiz: """)
+        if choice == "1":
+            tuner.suggest_parameters_for_beginners()
+        elif choice == "2":
+            tuner.explain_parameter_effects()
+        exit()
+    except ImportError:
+        print("❌ Hiperparametre modülü bulunamadı. hyperparameter_guide.py dosyasının mevcut olduğundan emin olun.")
+        input("Devam etmek için ENTER tuşuna basınız...")
+elif secim == "5":
+    # Model karşılaştırma
+    try:
+        from model_comparison import demo_comparison
+        demo_comparison()
+        exit()
+    except ImportError:
+        print("❌ Model karşılaştırma modülü bulunamadı. model_comparison.py dosyasının mevcut olduğundan emin olun.")
+        input("Devam etmek için ENTER tuşuna basınız...")
+elif secim == "6":
+    # Veri analizi rehberi
+    try:
+        from data_analysis_guide import demo_data_analysis
+        demo_data_analysis()
+        exit()
+    except ImportError:
+        print("❌ Veri analizi modülü bulunamadı. data_analysis_guide.py dosyasının mevcut olduğundan emin olun.")
+        input("Devam etmek için ENTER tuşuna basınız...")
+elif secim == "7":
+    # Gelişmiş ayarlar
+    print("⚙️  GELİŞMİŞ AYARLAR")
+    print("-"*50)
+    print(f"Mevcut Ayarlar:")
+    print(f"  Nöron Sayısı: {NEURON_COUNT}")
+    print(f"  Gizli Katmanlar: {HIDDEN_LAYERS}")
+    print(f"  Aktivasyon: {ACTIVATION}")
+    print(f"  Epoch: {EPOCHS}")
+    print(f"  Optimizer: {OPTIMIZER}")
+    print(f"  Öğrenme Oranı: {LEARNING_RATE}")
+    
+    choice = input("\nAyarları değiştirmek istiyor musunuz? (y/n): ")
+    if choice.lower() == 'y':
+        try:
+            NEURON_COUNT = int(input(f"Nöron Sayısı [{NEURON_COUNT}]: ") or NEURON_COUNT)
+            HIDDEN_LAYERS = int(input(f"Gizli Katman Sayısı [{HIDDEN_LAYERS}]: ") or HIDDEN_LAYERS)
+            EPOCHS = int(input(f"Epoch [{EPOCHS}]: ") or EPOCHS)
+            new_activation = input(f"Aktivasyon [{ACTIVATION}]: ") or ACTIVATION
+            if new_activation in ['relu', 'sigmoid', 'tanh', 'softmax', 'linear']:
+                ACTIVATION = new_activation
+            new_optimizer = input(f"Optimizer [{OPTIMIZER}]: ") or OPTIMIZER
+            if new_optimizer in optimizer_dict.keys():
+                OPTIMIZER = new_optimizer
+            LEARNING_RATE = float(input(f"Öğrenme Oranı [{LEARNING_RATE}]: ") or LEARNING_RATE)
+            print("✅ Ayarlar güncellendi!")
+        except ValueError:
+            print("❌ Geçersiz değer girildi. Varsayılan ayarlar korunuyor.")
+    
+    print("Model eğitimine devam ediliyor...")
+    
+if secim == "2":
     FILENAME = DATAFILE_REGRESSION
 else:
-    FILENAME = DATAFILE_CLASSIFICATION
+    FILENAME = DATAFILE_CLASSIFICATION  # Varsayılan veya secim == "1"
 is_regression = FILENAME == DATAFILE_REGRESSION
 CSV_File_Path = os.path.join(CURRENT_DIR, FILENAME)
 
