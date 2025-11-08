@@ -1,0 +1,33 @@
+# RNN Eğitim Paketi - Gerekli Kütüphaneler
+
+# Temel matematik ve veri manipülasyonu
+numpy>=1.21.0
+pandas>=1.3.0
+
+# Machine Learning ve Deep Learning
+tensorflow>=2.8.0
+scikit-learn>=1.0.0
+
+# Görselleştirme
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Veri işleme
+scipy>=1.7.0
+
+# Jupyter notebook desteği (opsiyonel)
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Metin işleme (text generation için)
+nltk>=3.7
+
+# İleri seviye optimizasyon (opsiyonel)
+keras-tuner>=1.1.0
+
+# Progress bar
+tqdm>=4.62.0
+
+# Ekstra araçlar
+pillow>=8.3.0  # Görsel işleme
+requests>=2.26.0  # Web istekleri

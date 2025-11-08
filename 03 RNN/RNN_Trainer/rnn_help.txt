@@ -1,0 +1,303 @@
+RNN TRAINER - HELP & DOCUMENTATION (v1.1)
+═══════════════════════════════════════════════════════════
+
+📖 OVERVIEW
+This application allows you to train and visualize Recurrent Neural Networks (RNN) 
+with real backpropagation through time (BPTT) algorithm.
+
+🆕 NEW in v1.1:
+   • Dropout Regularization for preventing overfitting
+   • Custom CSV data loading
+   • Future value prediction
+   • Auto-update panel when loading models
+
+🚀 QUICK START GUIDE
+
+1. INITIALIZE MODEL:
+   - Set Hidden Units (5-100): Number of neurons in hidden layer
+   - Set Learning Rate (0.001-0.1): Speed of learning
+   - Set Sequence Length (5-50): Length of input sequences
+   - Choose Activation Function: tanh or relu
+   - Set Dropout Rate (0.0-0.9): Regularization strength [NEW!]
+   - Click "Initialize Model"
+
+2. GENERATE DATA:
+   - Select Wave Type (11 different types available)
+   - Set Number of Samples (100-2000)
+   - Adjust Frequency (0.1-5.0)
+   - Set Noise Level (0.0-0.5)
+   - Click "Generate Data"
+   
+   OR LOAD CUSTOM DATA: [NEW!]
+   - Click "Load CSV Data"
+   - Select your CSV file (at least 10 values)
+   - Data will be visualized automatically
+
+3. TRAIN MODEL:
+   - Set Number of Epochs (10-500)
+   - Click "Start Training"
+   - Watch real-time loss decrease
+   - Click "Stop" to interrupt training
+
+4. TEST PREDICTIONS:
+   - Click "Test Prediction" after training
+   - Compare actual vs predicted values
+   - Check MSE (Mean Squared Error)
+   
+   OR PREDICT FUTURE: [NEW!]
+   - Click "Predict Future Values"
+   - Enter number of steps (e.g., 5, 10, 50)
+   - See future predictions on graph
+
+5. SAVE/LOAD MODEL:
+   - Save trained model for later use
+   - Load previous models to continue training
+   - Configuration is saved automatically
+   - Panel updates automatically when loading [FIXED!]
+
+🔧 PARAMETER GUIDE
+
+HIDDEN UNITS:
+  • Small (5-15): Fast training, less capacity
+  • Medium (20-40): Good balance
+  • Large (50-100): Better accuracy, slower training
+
+LEARNING RATE:
+  • Low (0.001-0.005): Stable but slow
+  • Medium (0.01-0.03): Recommended
+  • High (0.05-0.1): Fast but may diverge
+
+DROPOUT RATE: [NEW!]
+  • 0.0: No regularization (default)
+  • 0.1-0.3: Light regularization (recommended for start)
+  • 0.4-0.6: Medium regularization (good for overfitting)
+  • 0.7-0.9: Strong regularization (use with caution)
+
+SEQUENCE LENGTH:
+  • Short (5-10): Learns short-term patterns
+  • Medium (15-30): Balanced
+  • Long (35-50): Learns long-term dependencies
+
+ACTIVATION FUNCTIONS:
+  • tanh: Smooth, outputs in [-1, 1], recommended
+  • relu: Non-saturating, can be faster
+
+📊 DATA TYPES
+
+1. SINE WAVE: Smooth periodic oscillation
+   Best for: Learning basic periodicity
+
+2. COSINE WAVE: Phase-shifted sine wave
+   Best for: Testing phase learning
+
+3. SQUARE WAVE: Sharp transitions
+   Best for: Testing edge detection
+
+4. SAWTOOTH WAVE: Linear ramps
+   Best for: Learning linear trends
+
+5. TRIANGULAR WAVE: Symmetric triangular pattern
+   Best for: Testing symmetry learning
+
+6. MIXED WAVES: Combination of frequencies
+   Best for: Complex pattern recognition
+
+7. EXPONENTIAL: Growth/decay patterns
+   Best for: Trend prediction
+
+8. POLYNOMIAL: Non-linear trends
+   Best for: Complex trend learning
+
+9. RANDOM WALK: Stochastic process
+   Best for: Testing generalization
+
+10. ARMA: AutoRegressive Moving Average
+    Best for: Statistical modeling
+
+11. DAMPED OSCILLATION: Decaying oscillation
+    Best for: Complex dynamics
+
+💡 TRAINING TIPS
+
+1. Start with simple data (sine wave)
+2. Use medium parameters initially
+3. Train for at least 50 epochs
+4. Watch loss decrease steadily
+5. If loss increases, reduce learning rate
+6. If training is too slow, increase learning rate
+7. More hidden units = more capacity but slower
+8. Add noise to improve generalization
+
+🎯 EXAMPLE WORKFLOWS
+
+EXAMPLE 1 - Basic Sine Wave Prediction:
+  1. Hidden Units: 20
+  2. Learning Rate: 0.01
+  3. Sequence Length: 20
+  4. Generate Sine Wave (500 samples, freq=1.0, noise=0.05)
+  5. Train for 100 epochs
+  6. Test prediction
+
+EXAMPLE 2 - Complex Pattern:
+  1. Hidden Units: 40
+  2. Learning Rate: 0.005
+  3. Sequence Length: 30
+  4. Generate Mixed Waves (1000 samples, noise=0.1)
+  5. Train for 200 epochs
+  6. Test prediction
+
+EXAMPLE 3 - Trend Learning:
+  1. Hidden Units: 30
+  2. Learning Rate: 0.01
+  3. Sequence Length: 25
+  4. Generate Exponential (800 samples, noise=0.05)
+  5. Train for 150 epochs
+  6. Test prediction
+
+📈 INTERPRETING RESULTS
+
+LOSS PLOT:
+  • Should decrease over time
+  • Log scale shows relative improvements
+  • Plateaus indicate convergence
+  • Spikes may indicate learning issues
+
+PREDICTION PLOT:
+  • Blue line = Actual data
+  • Red dashed = Model predictions
+  • Closer alignment = better performance
+  • Check both trends and details
+
+MSE (Mean Squared Error):
+  • Lower is better
+  • < 0.01: Excellent
+  • 0.01-0.1: Good
+  • 0.1-1.0: Fair
+  • > 1.0: Poor (needs more training or parameter tuning)
+
+⚠️ TROUBLESHOOTING
+
+PROBLEM: Loss not decreasing
+SOLUTION: Increase learning rate or train longer
+
+PROBLEM: Loss exploding (increasing)
+SOLUTION: Decrease learning rate
+
+PROBLEM: Poor predictions
+SOLUTION: Increase hidden units or train longer
+
+PROBLEM: Training too slow
+SOLUTION: Reduce samples, hidden units, or epochs
+
+PROBLEM: Model overfitting (perfect on train, poor on test)
+SOLUTION: Add more noise, reduce hidden units
+
+🔬 ADVANCED FEATURES
+
+1. PARAMETER EXPERIMENTATION:
+   - Change parameters during training
+   - Compare different configurations
+   - Find optimal settings
+
+2. MODEL PERSISTENCE:
+   - Save best performing models
+   - Load and continue training
+   - Share models with others
+
+3. CUSTOM DATA: [NEW!]
+   - Load your own CSV files
+   - Predict future values
+   - Use real-world data for training
+
+🔮 FUTURE PREDICTION GUIDE [NEW!]
+
+HOW IT WORKS:
+  1. Load custom CSV data (or use generated data)
+  2. Model uses last 'sequence_length' values as seed
+  3. Predicts next N values step by step
+  4. Each prediction becomes input for next step
+
+EXAMPLE WORKFLOW:
+  Step 1: Prepare CSV with 30 temperature values
+  Step 2: Train model with similar pattern (sine wave)
+  Step 3: Load CSV with "Load CSV Data"
+  Step 4: Click "Predict Future Values"
+  Step 5: Enter 7 (predict next week)
+  Step 6: View predictions on graph
+
+CSV FORMAT:
+  Temperature
+  15.2
+  16.8
+  18.5
+  ...
+  
+  Rules:
+  • First row = header (optional, will be skipped)
+  • One number per row
+  • Minimum 10 values
+  • Comma or dot decimal separator
+
+TIPS:
+  • More historical data = better predictions
+  • Train with similar pattern types
+  • Short-term predictions (5-10 steps) are more accurate
+  • Long-term predictions (100+ steps) accumulate error
+
+📚 TECHNICAL DETAILS
+
+The RNN uses:
+  • Backpropagation Through Time (BPTT)
+  • Gradient clipping (prevents exploding gradients)
+  • Xavier weight initialization
+  • Mean squared error loss
+  • Gradient descent optimization
+  • Inverted Dropout for regularization [NEW!]
+
+Formula:
+  h_t = activation(W_xh * x_t + W_hh * h_{t-1} + b_h)
+  
+  [With Dropout during training]:
+  h_t = h_t * dropout_mask / (1 - dropout_rate)
+  
+  y_t = W_hy * h_t + b_y
+
+Dropout Mechanism:
+  • Training: Random units dropped with probability p
+  • Inference: All units active, no scaling needed
+  • Prevents co-adaptation of neurons
+  • Improves generalization
+
+💾 FILE FORMATS
+
+Models are saved as:
+  • .pkl: Model weights and parameters (includes dropout_rate)
+  • _config.json: Data normalization info
+
+CSV files:
+  • .csv or .txt: Time series data
+  • One value per line
+  • First line can be header
+
+Both files needed for complete model restoration.
+
+❓ FAQ
+
+Q: How long should I train?
+A: Until loss stabilizes (usually 50-200 epochs)
+
+Q: What's the best learning rate?
+A: Start with 0.01, adjust based on loss behavior
+
+Q: Can I train on custom data?
+A: Yes, modify data_generator.py to add custom functions
+
+Q: Why use normalization?
+A: Improves training stability and speed
+
+Q: What's BPTT?
+A: Backpropagation Through Time - extends backprop to sequences
+
+═══════════════════════════════════════════════════════════
+
+For more information, see README.md

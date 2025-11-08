@@ -1,0 +1,5 @@
+torch>=2.0.0
+customtkinter>=5.0.0
+matplotlib>=3.5.0
+seaborn>=0.12.0
+numpy>=1.21.0

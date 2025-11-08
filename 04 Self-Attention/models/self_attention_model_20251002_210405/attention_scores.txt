@@ -1,0 +1,180 @@
+═══════════════════════════════════════════════════════════
+ATTENTION SKORLARI RAPORU
+═══════════════════════════════════════════════════════════
+
+📊 Genel İstatistikler:
+   • Ortalama Attention: 0.1667
+   • Maksimum Attention: 1.0000
+   • Minimum Attention: 0.0000
+   • Token Sayısı: 6
+
+───────────────────────────────────────────────────────────
+TOKEN BAZLI DETAYLAR
+───────────────────────────────────────────────────────────
+
+
+🔤 Token: Ben
+   Index: 0
+   Self-Attention: 0.0000
+
+   📤 Verilen Attention (Query olarak):
+      Ortalama: 0.1667
+      Maksimum: 0.9758
+      En çok attention verdiği tokenlar:
+         → ve: 0.9758
+         → Bugün: 0.0242
+         → Gittim: 0.0000
+
+   📥 Alınan Attention (Key olarak):
+      Ortalama: 0.1667
+      Maksimum: 1.0000
+      En çok attention aldığı tokenlar:
+         ← Gittim: 1.0000
+         ← Bugün: 0.0000
+         ← Okula: 0.0000
+
+   📐 QKV Norm Değerleri:
+      Q norm: 40.0791
+      K norm: 39.4469
+      V norm: 34.4702
+
+────────────────────────────────────────────────────────────
+
+🔤 Token: Bugün
+   Index: 1
+   Self-Attention: 0.2168
+
+   📤 Verilen Attention (Query olarak):
+      Ortalama: 0.1667
+      Maksimum: 0.7832
+      En çok attention verdiği tokenlar:
+         → Markete: 0.7832
+         → Bugün: 0.2168
+         → Ben: 0.0000
+
+   📥 Alınan Attention (Key olarak):
+      Ortalama: 0.3735
+      Maksimum: 1.0000
+      En çok attention aldığı tokenlar:
+         ← Markete: 1.0000
+         ← ve: 1.0000
+         ← Bugün: 0.2168
+
+   📐 QKV Norm Değerleri:
+      Q norm: 31.4462
+      K norm: 48.6318
+      V norm: 36.2332
+
+────────────────────────────────────────────────────────────
+
+🔤 Token: Markete
+   Index: 2
+   Self-Attention: 0.0000
+
+   📤 Verilen Attention (Query olarak):
+      Ortalama: 0.1667
+      Maksimum: 1.0000
+      En çok attention verdiği tokenlar:
+         → Bugün: 1.0000
+         → Okula: 0.0000
+         → Gittim: 0.0000
+
+   📥 Alınan Attention (Key olarak):
+      Ortalama: 0.2972
+      Maksimum: 1.0000
+      En çok attention aldığı tokenlar:
+         ← Okula: 1.0000
+         ← Bugün: 0.7832
+         ← Gittim: 0.0000
+
+   📐 QKV Norm Değerleri:
+      Q norm: 38.9370
+      K norm: 31.6039
+      V norm: 30.6553
+
+────────────────────────────────────────────────────────────
+
+🔤 Token: ve
+   Index: 3
+   Self-Attention: 0.0000
+
+   📤 Verilen Attention (Query olarak):
+      Ortalama: 0.1667
+      Maksimum: 1.0000
+      En çok attention verdiği tokenlar:
+         → Bugün: 1.0000
+         → ve: 0.0000
+         → Okula: 0.0000
+
+   📥 Alınan Attention (Key olarak):
+      Ortalama: 0.1626
+      Maksimum: 0.9758
+      En çok attention aldığı tokenlar:
+         ← Ben: 0.9758
+         ← Bugün: 0.0000
+         ← Gittim: 0.0000
+
+   📐 QKV Norm Değerleri:
+      Q norm: 45.8233
+      K norm: 45.3245
+      V norm: 34.6775
+
+────────────────────────────────────────────────────────────
+
+🔤 Token: Okula
+   Index: 4
+   Self-Attention: 0.0000
+
+   📤 Verilen Attention (Query olarak):
+      Ortalama: 0.1667
+      Maksimum: 1.0000
+      En çok attention verdiği tokenlar:
+         → Markete: 1.0000
+         → Bugün: 0.0000
+         → Ben: 0.0000
+
+   📥 Alınan Attention (Key olarak):
+      Ortalama: 0.0000
+      Maksimum: 0.0000
+      En çok attention aldığı tokenlar:
+         ← Gittim: 0.0000
+         ← Bugün: 0.0000
+         ← Ben: 0.0000
+
+   📐 QKV Norm Değerleri:
+      Q norm: 35.0098
+      K norm: 42.0848
+      V norm: 43.4040
+
+────────────────────────────────────────────────────────────
+
+🔤 Token: Gittim
+   Index: 5
+   Self-Attention: 0.0000
+
+   📤 Verilen Attention (Query olarak):
+      Ortalama: 0.1667
+      Maksimum: 1.0000
+      En çok attention verdiği tokenlar:
+         → Ben: 1.0000
+         → Markete: 0.0000
+         → Okula: 0.0000
+
+   📥 Alınan Attention (Key olarak):
+      Ortalama: 0.0000
+      Maksimum: 0.0000
+      En çok attention aldığı tokenlar:
+         ← Bugün: 0.0000
+         ← Ben: 0.0000
+         ← Gittim: 0.0000
+
+   📐 QKV Norm Değerleri:
+      Q norm: 38.4668
+      K norm: 41.6946
+      V norm: 31.4197
+
+────────────────────────────────────────────────────────────
+
+═══════════════════════════════════════════════════════════
+Rapor Oluşturma Zamanı: 02.10.2025 21:04:05
+═══════════════════════════════════════════════════════════

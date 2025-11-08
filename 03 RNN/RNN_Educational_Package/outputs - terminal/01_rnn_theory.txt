@@ -1,0 +1,254 @@
+===========================================================================
+🧠 RNN TEORİSİ VE TEMEL KAVRAMLAR
+===========================================================================
+
+
+==================================================
+📋 RNN NEDİR?
+==================================================
+
+Recurrent Neural Network (RNN):
+• Zaman serilerini işlemek için tasarlanmış özel sinir ağı
+• Geçmiş bilgileri 'hatırlayarak' tahmin yapar
+• Sequential (sıralı) verilerle çalışır
+
+==================================================
+🔄 RNN ÇALIŞMA PRENSİBİ
+==================================================
+
+1. Her zaman adımında:
+   - Mevcut giriş (x_t)
+   - Önceki hidden state (h_t-1)
+   - Yeni hidden state hesaplanır (h_t)
+
+2. Formül:
+   h_t = tanh(W_hh * h_t-1 + W_xh * x_t + b)
+   y_t = W_hy * h_t + b_y
+
+==================================================
+📊 BASIT RNN ÖRNEĞİ - MANUEL UYGULAMA
+==================================================
+
+
+
+🎛️ PARAMETRIK AYARLAR
+--------------------------------------------------
+
+✅ Hidden Size : 13
+✅ Input Size  : 2
+✅ Time Steps  : 6
+✅ Weight Scale: 0.2
+➡️ Ağırlık matrisleri oluşturuldu (boyutlar: W_hh=(13, 13), W_xh=(13, 2))
+
+🟢 Giriş dizisi (6 zaman adımı):
+  t0: [-0.21712612,  0.69973454]
+  t1: [ 0.74941602,  0.14937053]
+  t2: [ 0.57710027, -0.13485635]
+  t3: [-0.48533585, -0.64289126]
+  t4: [-0.43963307, -0.38667404]
+  t5: [-0.82859755,  0.29052910]
+
+==================================================
+🔍 ADIM ADIM RNN HESAPLAMA:
+==================================================
+
+Başlangıç hidden states: [0. 0. 0. 0. 0.] ... (13 nöron)
+t0: x_t = [-0.21712612,  0.69973454], h_t = [-0.09149701,  0.02463162,  0.02390287, -0.03408783, -0.09982437] ... (ilk 5 nöron)
+t1: x_t = [ 0.74941602,  0.14937053], h_t = [-0.20270418, -0.07957355,  0.10906404,  0.15271248,  0.23508044] ... (ilk 5 nöron)
+t2: x_t = [ 0.57710027, -0.13485635], h_t = [-0.10798933,  0.00757320,  0.15417384,  0.07508851,  0.13263846] ... (ilk 5 nöron)
+t3: x_t = [-0.48533585, -0.64289126], h_t = [ 0.20218989, -0.00979547, -0.00406972, -0.11034413, -0.18572947] ... (ilk 5 nöron)
+t4: x_t = [-0.43963307, -0.38667404], h_t = [ 0.21616049, -0.10842690, -0.20838361, -0.06609838, -0.14018178] ... (ilk 5 nöron)
+t5: x_t = [-0.82859755,  0.29052910], h_t = [ 0.11132193,  0.16597711, -0.13021565, -0.10262410, -0.20577784] ... (ilk 5 nöron)
+
+==================================================
+📈 GİZLİ DURUMLARIN GÖRSELLEŞTİRİLMESİ
+==================================================
+
+📊 Grafikte gösterilen nöron sayısı: 10 / 13
+
+
+
+🧪 PARAMETRİK DENEY SİSTEMİ
+--------------------------------------------------
+
+Yukarıdaki parametreleri değiştirerek farklı deneyler yapabilirsiniz!
+
+
+
+🔧 NASIL FARKLI DURUMLAR DENEYEBİLİRİM?
+--------------------------------------------------
+
+1. Dosyanın başındaki parametreleri değiştirin:
+   • HIDDEN_SIZE  = 5, 10, 20, 50  (farklı değerler deneyin)
+   • TIME_STEPS   = 4, 8, 15, 20   (farklı zaman aralıkları)
+   • WEIGHT_SCALE = 0.01, 0.1, 0.5 (ağırlık büyüklükleri)
+
+2. Kodu tekrar çalıştırın ve sonuçları karşılaştırın.
+
+
+==================================================
+🎯 DENEYİM ÖNERİLERİ:
+==================================================
+
+• Hidden Size 2 - 20      : Hangi daha iyi öğrenir?
+• Time Steps 4 - 15       : Uzun veya kısa diziler
+• Weight Scale 0.01 vs 0.5: Ağırlık etkisi
+
+==================================================
+📊 MEVCUT DENEY SONUÇLARI:
+==================================================
+
+✓ Hidden Size  : 13
+✓ Time Steps   : 6
+✓ Son Hidden State ortalama: -0.0582
+✓ Hidden State değişkenliği: 0.0518
+✓ Maksimum aktivasyon      : 0.4194
+
+==================================================
+📈 OTOMATİK PERFORMANS ANALİZİ:
+==================================================
+
+🔹 Hafıza Kararlılığı: 0.0518
+   (Düşük = kararlı, Yüksek = değişken)
+🔹 Aktivasyon Gücü: 0.1394
+   (Çok düşük = öğrenme zor, Çok yüksek = patlama riski)
+🔹 Giriş Hassasiyeti: 0.3768
+   (Yüksek = çeşitli giriş desenleri)
+
+==================================================
+💡 PERFORMANS DEĞERLENDİRMESİ:
+==================================================
+
+✅ Aktivasyon dengeli görünüyor
+✅ Hidden state kararlı
+Bir tuşa basınız...
+
+
+
+🎯 HIDDEN STATE'İN FAYDASINI GÖSTEREN ÖRNEKLER
+----------------------------------------------------------------------
+
+
+==================================================
+    📋 ÖRNEK 1: DESEN TANIMA
+==================================================
+
+Diyelim ki şu sırayla sayılar gelsin: [1, 0, 1, 0]
+Desen: 1 -> 0 -> 1 -> 0 (değişken desen)
+
+t0: Giriş=[1. 0.] -> Hidden State: -0.14961562, -0.16172942,  0.06812471,  0.16394370,  0.28278524 ... (ilk 5 nöron)
+     En aktif nöron: 5 (Bu nöron geçmişi 'hatırlıyor')
+t1: Giriş=[0. 1.] -> Hidden State: -0.21663071,  0.11340465,  0.19995812, -0.01430364, -0.10633838 ... (ilk 5 nöron)
+     En aktif nöron: 0 (Bu nöron geçmişi 'hatırlıyor')
+t2: Giriş=[1. 0.] -> Hidden State: -0.19598122, -0.24106619,  0.16744805,  0.15327664,  0.28382123 ... (ilk 5 nöron)
+     En aktif nöron: 5 (Bu nöron geçmişi 'hatırlıyor')
+t3: Giriş=[0. 1.] -> Hidden State: -0.25041174,  0.09769502,  0.17490998,  0.00584659, -0.16960089 ... (ilk 5 nöron)
+     En aktif nöron: 8 (Bu nöron geçmişi 'hatırlıyor')
+
+🔍 ANALİZ:
+Hidden state'in değişimi, RNN'in önceki girişleri 'hatırladığını' gösterir!
+Her adımda sadece o anki giriş değil, geçmiş girişler de etkili olur.
+Bir tuşa basınız...
+
+
+==================================================
+    📋 ÖRNEK 2: GERÇEK RNN EĞİTİMİ VE TAHMİN
+==================================================
+
+RNN'i eğitelim ve başarısını ölçelim!
+
+
+🎯 Eğitim veri seti oluşturuluyor...
+--------------------------------------------------
+
+✅ 50 eğitim sekansı oluşturuldu (her biri 5 adım)
+   - 30 azalan desen
+   - 20 artan desen
+   İlk 5 sekans örneği:
+Training sequence 1:   1.2494,   0.8642,   0.4790,   0.0938,  -0.2914      Training target 1:  -0.6766
+Training sequence 2:   1.6784,   1.3988,   1.1192,   0.8396,   0.5600      Training target 2:   0.2804
+Training sequence 3:   0.9872,   0.8404,   0.6936,   0.5468,   0.4000      Training target 3:   0.2532
+Training sequence 4:   0.8697,   0.5098,   0.1500,  -0.2099,  -0.5697      Training target 4:  -0.9296
+Training sequence 5:   1.5213,   1.2089,   0.8965,   0.5841,   0.2717      Training target 5:  -0.0408
+
+🎯 Test Dizisi  : 1.4,  1.1,  0.9,  0.6,  0.4 -> ???
+   Beklenen sonraki değer: 0.1
+
+
+🧠 Creaating RNN Model...
+--------------------------------------------------
+
+✅ Model created:
+   Hidden Size   : 16
+   Learning Rate : 0.05
+   Weight matrices initialized (Xavier)
+
+
+🎓 Start training...
+--------------------------------------------------
+
+Epochs    : 40
+Batch Size: 10
+
+Epoch  1: Loss=5.4037, Test Prediction=0.352, Error=0.252
+Epoch  6: Loss=0.1807, Test Prediction=0.245, Error=0.145
+Epoch 11: Loss=0.1042, Test Prediction=0.078, Error=0.022
+Epoch 16: Loss=0.0966, Test Prediction=0.052, Error=0.048
+Epoch 21: Loss=0.0904, Test Prediction=0.052, Error=0.048
+Epoch 26: Loss=0.0845, Test Prediction=0.054, Error=0.046
+Epoch 31: Loss=0.0791, Test Prediction=0.057, Error=0.043
+Epoch 36: Loss=0.0741, Test Prediction=0.059, Error=0.041
+Epoch 40: Loss=0.0704, Test Prediction=0.062, Error=0.038
+
+🎯 Training completed.
+
+
+📊 Result Analysis:
+--------------------------------------------------
+
+🔹 Test Sequence  : 1.4,  1.1,  0.9,  0.6,  0.4
+🔹 Expected Value : 0.1
+🔹 RNN Prediction : 0.062
+🔹 Absolute Error : 0.038
+🔹 Error Rate     : 38.4%
+
+
+📈 Training Progress:
+--------------------------------------------------
+
+🔹 Initial Loss   : 5.4037
+🔹 Final Loss     : 0.0704
+🔹 Improvement    : 98.7%
+
+🏆 GREAT RESULT!
+   RNN pattern successfully learned!
+
+🏆 GREAT RESULT!
+   RNN pattern successfully learned!
+
+==================================================
+🎯 ADDITIONAL TEST PATTERNS:
+==================================================
+
+Test 1: 2.0, 1.7, 1.4, 1.1, 0.8 -> Expected: 0.5, Prediction: 0.581, Error: 0.081
+Test 2: 0.5, 0.7, 0.9, 1.1, 1.3 -> Expected: 1.5, Prediction: 1.826, Error: 0.326
+Test 3: 1.0, 1.4, 1.9, 2.3, 2.8 -> Expected: 3.2, Prediction: 3.415, Error: 0.215
+
+
+📊 General Success Report:
+--------------------------------------------------
+
+🔹 Average Error           : 0.165
+🔹 1st Test Success Level  : 🏆 Excellent
+🔹 2nd Test Success Level  : ⚠️  Average
+🔹 3rd Test Success Level  : ⚠️  Average
+🔹 Number of Tests        : 3
+👍 RNN learned the pattern at a reasonable level
+
+💡 Training Details:
+-------------------------
+✅  Trained on 50 different patterns
+✅  40 epochs of training completed
+✅  Loss reduced by % 99
+✅  Real backpropagation simulated
+✅  Multiple pattern recognition achieved

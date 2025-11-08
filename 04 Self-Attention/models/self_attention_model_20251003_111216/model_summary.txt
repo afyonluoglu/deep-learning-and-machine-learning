@@ -1,0 +1,32 @@
+═══════════════════════════════════════════════════════════
+MODEL ÖZETİ - SELF-ATTENTION ÖĞRENME ARACI
+═══════════════════════════════════════════════════════════
+
+📋 GENEL BİLGİLER
+───────────────────────────────────────────────────────────
+Model Adı          : self_attention_model
+Kayıt Tarihi       : 03.10.2025 11:12:16
+Tam Klasör Adı     : self_attention_model_20251003_111216
+
+⚙️ MODEL PARAMETRELERİ
+───────────────────────────────────────────────────────────
+d_model            : 64 (Embedding Boyutu)
+num_heads          : 4 (Attention Head Sayısı)
+num_layers         : 2 (Katman Sayısı)
+dropout            : 0.19999999999999996
+learning_rate      : 0.001
+
+📚 EĞİTİM PARAMETRELERİ
+───────────────────────────────────────────────────────────
+epochs             : N/A
+batch_size         : N/A
+vocab_size         : 8
+
+🔤 VOCABULARY
+───────────────────────────────────────────────────────────
+Vocabulary Boyutu  : 8
+Tokenlar           : <PAD>, <UNK>, Ben, Bugün, Gittim, Markete, Okula, ve
+
+═══════════════════════════════════════════════════════════
+Oluşturulma Zamanı: 03.10.2025 11:12:16
+═══════════════════════════════════════════════════════════

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Attention Öğrenme Aracı - Yardım</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(30, 30, 46, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            color: #61afef;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #98c379;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        
+        h2 {
+            color: #e5c07b;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #61afef;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #c678dd;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(45, 45, 68, 0.5);
+            border-radius: 10px;
+            border-left: 4px solid #61afef;
+        }
+        
+        .formula {
+            background: #282c34;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #98c379;
+            border-left: 4px solid #98c379;
+            overflow-x: auto;
+        }
+        
+        .example {
+            background: #2d3748;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #e5c07b;
+        }
+        
+        .example-title {
+            color: #e5c07b;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            background: rgba(97, 175, 239, 0.2);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #61afef;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: rgba(229, 192, 123, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e5c07b;
+            margin: 15px 0;
+        }
+        
+        .tip {
+            background: rgba(152, 195, 121, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #98c379;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #282c34;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: #61afef;
+            color: #1e1e2e;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #444;
+        }
+        
+        tr:hover {
+            background: rgba(97, 175, 239, 0.1);
+        }
+        
+        .button-demo {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #61afef;
+            color: #1e1e2e;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        .toc {
+            background: rgba(97, 175, 239, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h3 {
+            color: #61afef;
+            margin-bottom: 15px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .toc a {
+            color: #98c379;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .toc a:hover {
+            color: #61afef;
+        }
+        
+        .image-placeholder {
+            background: #282c34;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px dashed #61afef;
+        }
+        
+        code {
+            background: #282c34;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #98c379;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Self-Attention Öğrenme Aracı</h1>
+        <p class="subtitle">Yapay Sinir Ağlarında Self-Attention Mekanizmasını Öğrenin</p>
+        
+        <div class="toc">
+            <h3>📑 İçindekiler</h3>
+            <ul>
+                <li><a href="#giris">1. Giriş ve Temel Kavramlar</a></li>
+                <li><a href="#nasil-calisir">2. Self-Attention Nasıl Çalışır?</a></li>
+                <li><a href="#kullanim">3. Program Nasıl Kullanılır?</a></li>
+                <li><a href="#parametreler">4. Parametreler ve Etkileri</a></li>
+                <li><a href="#ornekler">5. Pratik Örnekler</a></li>
+                <li><a href="#gorsellestirme">6. Görselleştirmeleri Anlama</a></li>
+                <li><a href="#model-yonetimi">7. Model Yönetimi</a></li>
+                <li><a href="#ipuclari">8. İpuçları ve En İyi Pratikler</a></li>
+            </ul>
+        </div>
+        
+        <!-- Bölüm 1: Giriş -->
+        <div class="section" id="giris">
+            <h2>1. 🌟 Giriş ve Temel Kavramlar</h2>
+            
+            <h3>Self-Attention Nedir?</h3>
+            <p>
+                Self-Attention, bir dizideki her elemanın diğer tüm elemanlarla ilişkisini öğrenen 
+                güçlü bir mekanizmadır. Transformer mimarisinin temel taşıdır ve GPT, BERT gibi 
+                modern dil modellerinin başarısının arkasındaki ana unsurdur.
+            </p>
+            
+            <h3>🔑 Temel Kavramlar</h3>
+            
+            <div class="example">
+                <div class="example-title">Query (Q) - Sorgu</div>
+                <p>
+                    <strong>"Neyi arıyorum?"</strong> sorusunun cevabıdır. Her token, Query vektörü 
+                    aracılığıyla diğer token'lardan ne tür bilgi istediğini belirtir.
+                </p>
+                <p>
+                    <strong>Örnek:</strong> "Kedi mat üzerinde oturdu" cümlesinde "oturdu" kelimesi, 
+                    Query'si aracılığıyla "kim oturdu?" ve "nerede oturdu?" gibi sorulara cevap arar.
+                </p>
+            </div>
+            
+            <div class="example">
+                <div class="example-title">Key (K) - Anahtar</div>
+                <p>
+                    <strong>"Ben neyim?"</strong> sorusunun cevabıdır. Her token, Key vektörü ile 
+                    kendini tanıtır ve diğer token'ların sorgularına cevap verir.
+                </p>
+                <p>
+                    <strong>Örnek:</strong> "Kedi" kelimesi, Key'i ile "ben bir özneyim, bir hayvanyım" 
+                    bilgisini taşır.
+                </p>
+            </div>
+            
+            <div class="example">
+                <div class="example-title">Value (V) - Değer</div>
+                <p>
+                    <strong>"Ne bilgi taşıyorum?"</strong> sorusunun cevabıdır. Attention hesaplandıktan 
+                    sonra aktarılacak gerçek bilgiyi içerir.
+                </p>
+                <p>
+                    <strong>Örnek:</strong> "Kedi" kelimesinin Value vektörü, semantik anlamı, gramatikal 
+                    rolü gibi zengin bilgileri kodlar.
+                </p>
+            </div>
+            
+            <div class="tip">
+                <strong>💡 İpucu:</strong> Q, K, V'yi bir kütüphane sistemi olarak düşünün:
+                <ul>
+                    <li><strong>Query:</strong> Aradığınız konu (örn: "kediler hakkında kitap")</li>
+                    <li><strong>Key:</strong> Kitapların katalog bilgileri</li>
+                    <li><strong>Value:</strong> Kitapların içerikleri</li>
+                </ul>
+                Attention mekanizması, query'nize en uygun kitapları bulur ve içeriklerini size sunar!
+            </div>
+        </div>
+        
+        <!-- Bölüm 2: Nasıl Çalışır -->
+        <div class="section" id="nasil-calisir">
+            <h2>2. ⚙️ Self-Attention Nasıl Çalışır?</h2>
+            
+            <h3>Adım Adım Hesaplama</h3>
+            
+            <div class="formula">
+                <strong>Adım 1: Q, K, V Hesaplama</strong><br><br>
+                Q = X × W<sub>q</sub><br>
+                K = X × W<sub>k</sub><br>
+                V = X × W<sub>v</sub><br><br>
+                <em>X: Giriş vektörleri (token embedding'leri)</em><br>
+                <em>W<sub>q</sub>, W<sub>k</sub>, W<sub>v</sub>: Öğrenilebilir ağırlık matrisleri</em>
+            </div>
+            
+            <div class="formula">
+                <strong>Adım 2: Attention Skorları</strong><br><br>
+                Scores = (Q × K<sup>T</sup>) / √d<sub>k</sub><br><br>
+                <em>d<sub>k</sub>: Key vektörlerinin boyutu</em><br>
+                <em>√d<sub>k</sub>: Scaling faktörü (gradient'leri stabilize eder)</em>
+            </div>
+            
+            <div class="formula">
+                <strong>Adım 3: Softmax</strong><br><br>
+                Attention_Weights = softmax(Scores)<br><br>
+                <em>Softmax, skorları 0-1 arası olasılıklara dönüştürür</em><br>
+                <em>Her satırın toplamı 1'dir</em>
+            </div>
+            
+            <div class="formula">
+                <strong>Adım 4: Weighted Sum</strong><br><br>
+                Output = Attention_Weights × V<br><br>
+                <em>Her token için ağırlıklı ortalama alınır</em><br>
+                <em>Sonuç: Bağlamsal bilgilerle zenginleştirilmiş vektörler</em>
+            </div>
+            
+            <h3>🎨 Multi-Head Attention</h3>
+            <p>
+                Tek bir attention mekanizması yerine birden fazla "head" (kafa) kullanılır. 
+                Her head farklı bir ilişki türünü öğrenebilir:
+            </p>
+            
+            <ul>
+                <li><strong>Head 1:</strong> Sözdizimsel ilişkiler (özne-yüklem)</li>
+                <li><strong>Head 2:</strong> Anlamsal ilişkiler (eşanlamlı kelimeler)</li>
+                <li><strong>Head 3:</strong> Uzun mesafe bağımlılıklar</li>
+                <li><strong>Head 4:</strong> Kısa mesafe bağımlılıklar</li>
+            </ul>
+            
+            <div class="formula">
+                <strong>Multi-Head Attention Formülü</strong><br><br>
+                MultiHead(Q, K, V) = Concat(head<sub>1</sub>, ..., head<sub>h</sub>) × W<sub>O</sub><br><br>
+                head<sub>i</sub> = Attention(QW<sub>i</sub><sup>Q</sup>, KW<sub>i</sub><sup>K</sup>, VW<sub>i</sub><sup>V</sup>)
+            </div>
+        </div>
+        
+        <!-- Bölüm 3: Kullanım -->
+        <div class="section" id="kullanim">
+            <h2>3. 🚀 Program Nasıl Kullanılır?</h2>
+            
+            <h3>Başlangıç Adımları</h3>
+            
+            <ol>
+                <li>
+                    <strong>Veri Seçimi:</strong>
+                    <ul>
+                        <li>Örnek veri setlerinden birini seçin veya kendi verinizi girin</li>
+                        <li>Her satır bir token'ı temsil eder</li>
+                        <li>Minimum 3-4 token önerilir</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>Parametre Ayarlama:</strong>
+                    <ul>
+                        <li><code>d_model</code>: Embedding boyutu (32-512 arası)</li>
+                        <li><code>num_heads</code>: Head sayısı (1-16 arası)</li>
+                        <li><code>dropout</code>: Dropout oranı (0.0-0.5 arası)</li>
+                        <li><code>learning_rate</code>: Öğrenme hızı (0.0001-0.01 arası)</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>Eğitim Ayarları:</strong>
+                    <ul>
+                        <li><code>Epoch Sayısı</code>: Kaç kez eğitim yapılacağı (önerilen: 50-200)</li>
+                        <li><code>Batch Size</code>: Batch büyüklüğü (önerilen: 4-16)</li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <strong>Eğitimi Başlatma:</strong>
+                    <ul>
+                        <li>"🚀 Eğitimi Başlat" butonuna tıklayın</li>
+                        <li>İlerleme çubuğunu takip edin</li>
+                        <li>Eğitim tamamlandığında görselleştirmeler otomatik güncellenir</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <div class="example">
+                <div class="example-title">📝 Örnek Çalışma Akışı</div>
+                <ol>
+                    <li>Örnek: "Kelime Dizisi" seçin</li>
+                    <li>Parametreler: d_model=64, num_heads=4, dropout=0.1, lr=0.001</li>
+                    <li>Eğitim: epochs=50, batch_size=8</li>
+                    <li>Eğitimi başlatın ve sonuçları gözlemleyin</li>
+                    <li>num_heads'i 8'e çıkarın ve farkı gözlemleyin</li>
+                    <li>d_model'i 128'e çıkarın ve yeniden eğitin</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Bölüm 4: Parametreler -->
+        <div class="section" id="parametreler">
+            <h2>4. ⚙️ Parametreler ve Etkileri</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parametre</th>
+                        <th>Açıklama</th>
+                        <th>Önerilen Değerler</th>
+                        <th>Etkisi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>d_model</strong></td>
+                        <td>Embedding vektörlerinin boyutu</td>
+                        <td>64, 128, 256, 512</td>
+                        <td>
+                            ↑ Daha zengin temsil, daha fazla bellek<br>
+                            ↓ Daha hızlı, daha basit temsil
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>num_heads</strong></td>
+                        <td>Attention head sayısı</td>
+                        <td>4, 8, 12, 16</td>
+                        <td>
+                            ↑ Daha çeşitli ilişkiler, daha fazla hesaplama<br>
+                            ↓ Daha hızlı, daha basit ilişkiler<br>
+                            <em>Not: d_model'e tam bölünmeli!</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>dropout</strong></td>
+                        <td>Regularization için dropout oranı</td>
+                        <td>0.1, 0.2, 0.3</td>
+                        <td>
+                            ↑ Daha az overfitting, daha genel model<br>
+                            ↓ Daha fazla kapasité, overfitting riski<br>
+                            <em>0.0 = dropout yok</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>learning_rate</strong></td>
+                        <td>Optimizer öğrenme hızı</td>
+                        <td>0.0001 - 0.01</td>
+                        <td>
+                            ↑ Daha hızlı öğrenme, kararsızlık riski<br>
+                            ↓ Daha stabil, yavaş öğrenme
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>epochs</strong></td>
+                        <td>Eğitim döngüsü sayısı</td>
+                        <td>50 - 200</td>
+                        <td>
+                            ↑ Daha iyi öğrenme, overfitting riski<br>
+                            ↓ Daha hızlı, eksik öğrenme riski
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>batch_size</strong></td>
+                        <td>Her iterasyondaki örnek sayısı</td>
+                        <td>4, 8, 16</td>
+                        <td>
+                            ↑ Daha stabil gradientler, daha fazla bellek<br>
+                            ↓ Daha gürültülü gradientler, düşük bellek
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="warning">
+                <strong>⚠️ Dikkat:</strong>
+                <ul>
+                    <li><code>num_heads</code> parametresi <code>d_model</code>'e tam bölünmelidir!</li>
+                    <li>Çok yüksek <code>learning_rate</code> eğitimi kararsız yapabilir</li>
+                    <li>Çok düşük <code>dropout</code> overfitting'e neden olabilir</li>
+                    <li>Çok fazla <code>epoch</code> eğitim süresini uzatır</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Bölüm 5: Örnekler -->
+        <div class="section" id="ornekler">
+            <h2>5. 📚 Pratik Örnekler</h2>
+            
+            <div class="example">
+                <div class="example-title">Örnek 1: Basit Cümle Analizi</div>
+                <p><strong>Veri:</strong></p>
+                <code>
+                    Kedi<br>
+                    Mat<br>
+                    Üzerinde<br>
+                    Oturdu
+                </code>
+                <p><strong>Parametreler:</strong></p>
+                <ul>
+                    <li>d_model: 64</li>
+                    <li>num_heads: 4</li>
+                    <li>epochs: 50</li>
+                </ul>
+                <p><strong>Gözlem:</strong> "Oturdu" kelimesinin "Kedi" ve "Mat" ile güçlü attention bağlantıları oluştuğunu göreceksiniz.</p>
+            </div>
+            
+            <div class="example">
+                <div class="example-title">Örnek 2: Zaman Serisi</div>
+                <p><strong>Veri:</strong></p>
+                <code>
+                    Pazartesi<br>
+                    Salı<br>
+                    Çarşamba<br>
+                    Perşembe<br>
+                    Cuma
+                </code>
+                <p><strong>Parametreler:</strong></p>
+                <ul>
+                    <li>d_model: 128</li>
+                    <li>num_heads: 8</li>
+                    <li>epochs: 100</li>
+                </ul>
+                <p><strong>Gözlem:</strong> Ardışık günlerin birbirleriyle güçlü attention ilişkisi kurduğunu göreceksiniz.</p>
+            </div>
+            
+            <div class="example">
+                <div class="example-title">Örnek 3: Parametre Karşılaştırması</div>
+                <p><strong>Deney:</strong> Aynı veriyle farklı head sayılarını deneyin</p>
+                <ol>
+                    <li>İlk eğitim: num_heads=2, modeli kaydedin</li>
+                    <li>İkinci eğitim: num_heads=8, modeli kaydedin</li>
+                    <li>Attention map'leri karşılaştırın</li>
+                    <li>Daha fazla head'in daha detaylı ilişkiler öğrendiğini gözlemleyin</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Bölüm 6: Görselleştirme -->
+        <div class="section" id="gorsellestirme">
+            <h2>6. 📊 Görselleştirmeleri Anlama</h2>
+            
+            <h3>🔍 Attention Map (Dikkat Haritası)</h3>
+            <div class="image-placeholder">
+                <img src="outputs/attention_map.png" alt="Attention Map Örneği" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            </div>
+            <ul>
+                <li><strong>Satırlar:</strong> Query token'ları (soran)</li>
+                <li><strong>Sütunlar:</strong> Key token'ları (cevap veren)</li>
+                <li><strong>Renk Yoğunluğu:</strong> Attention ağırlığı (0-1 arası)</li>
+                <li><strong>Parlak Hücreler:</strong> Güçlü ilişki</li>
+                <li><strong>Koyu Hücreler:</strong> Zayıf ilişki</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>💡 Nasıl Okunur:</strong>
+                <ul>
+                    <li>Bir satıra bakın (örn: "Oturdu")</li>
+                    <li>En parlak hücreleri bulun</li>
+                    <li>Bu hücreler, "Oturdu"nun en çok dikkat ettiği kelimeleri gösterir</li>
+                    <li>Tipik olarak özne ve nesne kelimeleri parlak olacaktır</li>
+                </ul>
+            </div>
+            
+            <h3>📊 Q, K, V Matrisleri</h3>
+            <div class="image-placeholder">
+                <img src="outputs/qkv_matrices.png" alt="Q, K, V Matrisleri Örneği" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            </div>
+            <ul>
+                <li><strong>Her satır:</strong> Bir token'ın vektör temsili</li>
+                <li><strong>Renkler:</strong> Vektör değerleri</li>
+                <li><strong>Kırmızı:</strong> Pozitif değerler</li>
+                <li><strong>Mavi:</strong> Negatif değerler</li>
+                <li><strong>Sarı/Beyaz:</strong> Sıfıra yakın değerler</li>
+            </ul>
+            
+            <h3>📈 Eğitim Grafiği</h3>
+            <div class="image-placeholder">
+                <img src="outputs/training_history.png" alt="Eğitim Grafiği Örneği" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            </div>
+            <ul>
+                <li><strong>X Ekseni:</strong> Epoch sayısı</li>
+                <li><strong>Y Ekseni:</strong> Loss (kayıp) değeri</li>
+                <li><strong>İdeal Durum:</strong> Sürekli azalan eğri</li>
+                <li><strong>Plato:</strong> Öğrenmenin durduğu bölgeler</li>
+                <li><strong>Artış:</strong> Overfitting sinyali olabilir</li>
+            </ul>
+            
+            <div class="warning">
+                <strong>⚠️ Dikkat Edilmesi Gerekenler:</strong>
+                <ul>
+                    <li>Loss çok hızlı düşüyorsa: learning_rate çok yüksek olabilir</li>
+                    <li>Loss hiç düşmüyorsa: learning_rate çok düşük olabilir</li>
+                    <li>Loss aşırı dalgalıysa: batch_size çok küçük olabilir</li>
+                    <li>Loss artmaya başladıysa: overfitting başlıyor olabilir</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Bölüm 7: Model Yönetimi -->
+        <div class="section" id="model-yonetimi">
+            <h2>7. 💾 Model Yönetimi</h2>
+            
+            <h3>Model Kaydetme</h3>
+            <ol>
+                <li>Eğitim tamamlandıktan sonra "Model Adı" alanına anlamlı bir isim girin</li>
+                <li>"💾 Modeli Kaydet" butonuna tıklayın</li>
+                <li>Model, tüm parametreleri ve ağırlıklarıyla birlikte kaydedilir</li>
+                <li>Otomatik olarak zaman damgası eklenir</li>
+            </ol>
+            
+            <div class="example">
+                <div class="example-title">Model Kayıt Örneği</div>
+                <code>
+                    Model Adı: kelime_dizisi_model<br>
+                    Kaydedilen: kelime_dizisi_model_20250102_143052<br>
+                    Konum: models/kelime_dizisi_model_20250102_143052/
+                </code>
+            </div>
+            
+            <h3>Model Yükleme</h3>
+            <ol>
+                <li>"📂 Model Yükle" butonuna tıklayın</li>
+                <li>Açılan listeden yüklemek istediğiniz modeli seçin</li>
+                <li>Model tüm ayarlarıyla birlikte yüklenir</li>
+                <li>Yüklenen modelle hemen deney yapabilirsiniz</li>
+            </ol>
+            
+            <h3>Model Dosya Yapısı</h3>
+            <div class="formula">
+                models/<br>
+                └── model_adı_20250102_143052/<br>
+                    ├── model_weights.pth      (ağırlıklar)<br>
+                    ├── full_model.pth         (tam model)<br>
+                    ├── config.json            (konfigürasyon)<br>
+                    └── model_info.json        (meta bilgiler)
+            </div>
+            
+            <div class="tip">
+                <strong>💡 İpuçları:</strong>
+                <ul>
+                    <li>Farklı parametre kombinasyonları için farklı modeller kaydedin</li>
+                    <li>Model adlarını açıklayıcı seçin (örn: "yuksek_head_model", "dusuk_dropout_model")</li>
+                    <li>Önemli modelleri düzenli olarak yedekleyin</li>
+                    <li>Model karşılaştırması için birden fazla versiyonu saklayın</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Bölüm 8: İpuçları -->
+        <div class="section" id="ipuclari">
+            <h2>8. 💡 İpuçları ve En İyi Pratikler</h2>
+            
+            <h3>🎯 Başlangıç İçin</h3>
+            <ul>
+                <li>Küçük veri setleriyle başlayın (4-6 token)</li>
+                <li>Basit parametrelerle başlayın (d_model=64, num_heads=4)</li>
+                <li>İlk eğitimlerde düşük epoch kullanın (20-50)</li>
+                <li>Her değişiklikten sonra sonuçları dikkatle gözlemleyin</li>
+            </ul>
+            
+            <h3>🔬 Deneyler İçin</h3>
+            <ul>
+                <li><strong>Tek Değişken Kuralı:</strong> Her seferinde sadece bir parametreyi değiştirin</li>
+                <li><strong>Kayıt Tutun:</strong> Her deneyden sonra modeli farklı bir isimle kaydedin</li>
+                <li><strong>Karşılaştırın:</strong> Farklı modellerin attention map'lerini karşılaştırın</li>
+                <li><strong>Extremeleri Test Edin:</strong> Çok düşük ve çok yüksek değerleri deneyin</li>
+            </ul>
+            
+            <h3>🚀 Performans İyileştirme</h3>
+            <ul>
+                <li>GPU varsa otomatik olarak kullanılır</li>
+                <li>Büyük d_model değerleri daha fazla bellek gerektirir</li>
+                <li>Batch size'ı belleğe göre ayarlayın</li>
+                <li>Çok fazla epoch kullanmaktan kaçının</li>
+            </ul>
+            
+            <h3>📖 Öğrenme Stratejileri</h3>
+            
+            <div class="example">
+                <div class="example-title">Öğrenme Yolu Önerisi</div>
+                <ol>
+                    <li><strong>1. Hafta:</strong> Temel kavramları anlayın (Q, K, V nedir?)</li>
+                    <li><strong>2. Hafta:</strong> Basit örneklerle attention map'leri inceleyin</li>
+                    <li><strong>3. Hafta:</strong> Parametrelerin etkilerini deneyin</li>
+                    <li><strong>4. Hafta:</strong> Kendi verilerinizle deneyler yapın</li>
+                    <li><strong>5. Hafta:</strong> Multi-head attention'ın avantajlarını keşfedin</li>
+                </ol>
+            </div>
+            
+            <h3>🐛 Sorun Giderme</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sorun</th>
+                        <th>Olası Sebep</th>
+                        <th>Çözüm</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Loss düşmüyor</td>
+                        <td>Learning rate çok düşük</td>
+                        <td>Learning rate'i artırın (örn: 0.001)</td>
+                    </tr>
+                    <tr>
+                        <td>Loss patladı (NaN)</td>
+                        <td>Learning rate çok yüksek</td>
+                        <td>Learning rate'i düşürün (örn: 0.0001)</td>
+                    </tr>
+                    <tr>
+                        <td>Hata: d_model bölünmüyor</td>
+                        <td>num_heads uyumsuz</td>
+                        <td>d_model'i num_heads'e tam bölünebilir yapın</td>
+                    </tr>
+                    <tr>
+                        <td>Çok yavaş</td>
+                        <td>Parametreler çok büyük</td>
+                        <td>d_model veya num_heads'i azaltın</td>
+                    </tr>
+                    <tr>
+                        <td>Bellek hatası</td>
+                        <td>Batch size çok büyük</td>
+                        <td>Batch size'ı küçültün (örn: 4)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="tip">
+                <strong>🎓 İleri Seviye İpuçları:</strong>
+                <ul>
+                    <li>Positional Encoding'in etkisini anlamak için farklı dizilimler deneyin</li>
+                    <li>Multi-head attention'da her head'in farklı paternler öğrendiğini gözlemleyin</li>
+                    <li>Uzun diziler için attention pattern'lerinin nasıl değiştiğini inceleyin</li>
+                    <li>Layer Normalization'ın etkisini araştırın</li>
+                </ul>
+            </div>
+            
+            <h3>📚 Ek Kaynaklar</h3>
+            <ul>
+                <li><strong>Paper:</strong> "Attention Is All You Need" (Vaswani et al., 2017)</li>
+                <li><strong>Blog:</strong> Jay Alammar's "The Illustrated Transformer"</li>
+                <li><strong>Video:</strong> 3Blue1Brown - Deep Learning serisi</li>
+                <li><strong>Kurs:</strong> Stanford CS224N - Natural Language Processing</li>
+            </ul>
+        </div>
+        
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 2px solid #61afef;">
+            <p style="color: #98c379; font-size: 1.2em;">
+                <strong>🎓 İyi Öğrenmeler!</strong>
+            </p>
+            <p style="color: #e0e0e0; margin-top: 10px;">
+                Self-Attention mekanizmasını anlamak, modern yapay zeka sistemlerini 
+                anlamanın temelidir. Bol bol deney yapın ve keşfedin!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
