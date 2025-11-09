@@ -83,7 +83,7 @@ def visualize_bidirectional_concept():
     """Bidirectional RNN kavramını görselleştirir"""
     
     fig, axes = plt.subplots(2, 2, figsize=(16, 12))
-    fig.suptitle('🔄 Bidirectional RNN Concept', fontsize=16, fontweight='bold')
+    fig.suptitle('Bidirectional RNN Concept', fontsize=16, fontweight='bold')
     
     # 1. Forward vs Backward information flow
     x_pos = np.arange(5)
@@ -95,7 +95,7 @@ def visualize_bidirectional_concept():
         axes[0, 0].text(i, 0.3, f'x{i+1}', ha='center', fontweight='bold')
         axes[0, 0].text(i, 0.7, f'h{i+1}→', ha='center', fontweight='bold', color='blue')
     
-    axes[0, 0].set_title('➡️ Forward RNN', fontweight='bold', color='blue')
+    axes[0, 0].set_title('Forward RNN', fontweight='bold', color='blue')
     axes[0, 0].set_xlim(-0.5, 4.5)
     axes[0, 0].set_ylim(0, 1)
     axes[0, 0].axis('off')
@@ -107,7 +107,7 @@ def visualize_bidirectional_concept():
         axes[0, 1].text(i, 0.3, f'x{i+1}', ha='center', fontweight='bold')
         axes[0, 1].text(i, 0.7, f'←h{i+1}', ha='center', fontweight='bold', color='red')
     
-    axes[0, 1].set_title('⬅️ Backward RNN', fontweight='bold', color='red')
+    axes[0, 1].set_title('Backward RNN', fontweight='bold', color='red')
     axes[0, 1].set_xlim(-0.5, 4.5)
     axes[0, 1].set_ylim(0, 1)
     axes[0, 1].axis('off')
@@ -128,7 +128,7 @@ def visualize_bidirectional_concept():
     axes[1, 0].arrow(4.2, 0.3, -4.4, 0, head_width=0.05, head_length=0.1, 
                     fc='red', ec='red', alpha=0.7)
     
-    axes[1, 0].set_title('🔄 Bidirectional RNN (Combined)', fontweight='bold', color='purple')
+    axes[1, 0].set_title('Bidirectional RNN (Combined)', fontweight='bold', color='purple')
     axes[1, 0].set_xlim(-0.5, 4.5)
     axes[1, 0].set_ylim(-0.1, 0.9)
     axes[1, 0].legend()
@@ -147,7 +147,7 @@ def visualize_bidirectional_concept():
     axes[1, 1].bar(time_steps + 0.2, bi_context, width=0.4,
                   alpha=0.7, color='purple', label='Bidirectional')
     
-    axes[1, 1].set_title('📊 Context Awareness Comparison', fontweight='bold')
+    axes[1, 1].set_title('Context Awareness Comparison', fontweight='bold')
     axes[1, 1].set_xlabel('Time Step')
     axes[1, 1].set_ylabel('Available Context')
     axes[1, 1].legend()
@@ -309,7 +309,7 @@ def comprehensive_bidirectional_analysis():
     
     # Visualization
     fig, axes = plt.subplots(2, 3, figsize=(18, 12))
-    fig.suptitle('🔄 Bidirectional RNN Analysis', fontsize=16, fontweight='bold')
+    fig.suptitle('Bidirectional RNN Analysis', fontsize=16, fontweight='bold')
     
     # 1. Training curves
     colors = ['blue', 'red', 'purple', 'green']
@@ -319,7 +319,7 @@ def comprehensive_bidirectional_analysis():
         axes[0, 0].plot(history.history['val_accuracy'], color=colors[i], 
                        linestyle='--', linewidth=2, alpha=0.8)
     
-    axes[0, 0].set_title('📈 Training & Validation Accuracy', fontweight='bold')
+    axes[0, 0].set_title('Training & Validation Accuracy', fontweight='bold')
     axes[0, 0].set_xlabel('Epoch')
     axes[0, 0].set_ylabel('Accuracy')
     axes[0, 0].legend()
@@ -331,7 +331,7 @@ def comprehensive_bidirectional_analysis():
     
     bars = axes[0, 1].bar(range(len(model_names)), accuracies, 
                          color=colors, alpha=0.7)
-    axes[0, 1].set_title('🎯 Test Accuracy Comparison', fontweight='bold')
+    axes[0, 1].set_title('Test Accuracy Comparison', fontweight='bold')
     axes[0, 1].set_xlabel('Model Type')
     axes[0, 1].set_ylabel('Accuracy')
     axes[0, 1].set_xticks(range(len(model_names)))
@@ -353,7 +353,7 @@ def comprehensive_bidirectional_analysis():
                            (param_counts[i], accuracies[i]),
                            xytext=(5, 5), textcoords='offset points', fontsize=8)
     
-    axes[0, 2].set_title('⚖️ Parameters vs Accuracy', fontweight='bold')
+    axes[0, 2].set_title('Parameters vs Accuracy', fontweight='bold')
     axes[0, 2].set_xlabel('Parameter Count')
     axes[0, 2].set_ylabel('Test Accuracy')
     axes[0, 2].grid(True, alpha=0.3)
@@ -364,7 +364,7 @@ def comprehensive_bidirectional_analysis():
     
     bars = axes[1, 0].bar(range(len(model_names)), efficiency,
                          color=colors, alpha=0.7)
-    axes[1, 0].set_title('⚡ Training Efficiency (Acc/Epoch)', fontweight='bold')
+    axes[1, 0].set_title('Training Efficiency (Acc/Epoch)', fontweight='bold')
     axes[1, 0].set_xlabel('Model Type')
     axes[1, 0].set_ylabel('Accuracy per Epoch')
     axes[1, 0].set_xticks(range(len(model_names)))
@@ -376,7 +376,7 @@ def comprehensive_bidirectional_analysis():
     
     bars = axes[1, 1].bar(range(len(model_names)), test_losses,
                          color=colors, alpha=0.7)
-    axes[1, 1].set_title('📉 Test Loss Comparison', fontweight='bold')
+    axes[1, 1].set_title('Test Loss Comparison', fontweight='bold')
     axes[1, 1].set_xlabel('Model Type')
     axes[1, 1].set_ylabel('Loss')
     axes[1, 1].set_xticks(range(len(model_names)))
@@ -398,7 +398,7 @@ def comprehensive_bidirectional_analysis():
     axes[1, 2].bar(x, normalized_epochs, width, label='Training Time', alpha=0.7)
     axes[1, 2].bar(x + width, normalized_memory, width, label='Memory Usage', alpha=0.7)
     
-    axes[1, 2].set_title('🔧 Model Complexity Comparison', fontweight='bold')
+    axes[1, 2].set_title('Model Complexity Comparison', fontweight='bold')
     axes[1, 2].set_xlabel('Model Type')
     axes[1, 2].set_ylabel('Normalized Complexity')
     axes[1, 2].set_xticks(x)
@@ -432,7 +432,7 @@ print_section("BİDİRECTİONAL RNN UYGULAMA ÖRNEKLERİ")
 def practical_bidirectional_examples():
     """Pratik bidirectional RNN örnekleri"""
     
-    print("🚀 Praktik Bidirectional RNN uygulamaları...")
+    print("🚀 Pratik Bidirectional RNN uygulamaları...")
     
     # Example 1: Sequence classification with different patterns
     print("\n1️⃣ SEQUENCE CLASSIFICATION ÖRNEĞİ:")

@@ -1,0 +1,228 @@
+ Gerekli kütüphaneler kontrol ediliyor...
+--------------------------------------------------
+✅ numpy kütüphanesi zaten yüklü
+✅ pandas kütüphanesi zaten yüklü
+✅ tensorflow kütüphanesi zaten yüklü
+✅ matplotlib kütüphanesi zaten yüklü
+✅ scikit-learn kütüphanesi zaten yüklü
+✅ pygame kütüphanesi zaten yüklü
+🚀 Tüm kütüphaneler hazır! Program başlatılıyor...
+-------------------------------------------------- 
+
+ ======================================================================
+          DEEP LEARNING EĞİTİM PROGRAMI  - TensorFlow Keras
+====================================================================== 
+
+  TensorFlow sürümü 2.20.0 
+ ⚠️  TensorFlow sürümünüz GPU'yu desteklemiyor. 2.11 veya altı bir sürüm yükleyin. 
+
+ ✨  Kullanılabilir kaynaklar (CPUGPU) [LogicalDevice(name='deviceCPU0', device_type='CPU')]
+🟢 CPU çekirdek sayısı 32
+ ⚠️  GPU'ya erişilemedi.  
+
+  --- Ana Menü ------------------------------------------------------- 
+🎯  Deep Learning Eğitim Seçenekleri
+   1 - Model Eğitimi (Classification)
+   2 - Model Eğitimi (Regression)
+   3 - 📚 Tutorial Modu (Deep Learning Kavramları)
+   4 - 🔧 Hiperparametre Optimizasyonu Rehberi
+   5 - 📊 Model Karşılaştırma Aracı
+   6 - 🔍 Veri Analizi ve Ön İşleme Rehberi
+   7 - ⚙️  Gelişmiş Ayarlar
+   Default Model Eğitimi - Classification (knn_purchase_history.csv)
+======================================================================
+Seçiminizi yapın
+Seçiminiz (E exit) 6
+🎮 DEMO Veri Analizi Rehberi
+
+1. Veri keşfi...
+📂 VERİ YÜKLENİYOR VE KEŞF EDİLİYOR...
+============================================================
+✅ Veri başarıyla yüklendi cUsersASUSDesktopPython with AIYapay Zeka - AI Traning Kits02 Deep Learningdemo_dataset.csv
+
+📊 VERİ SETİ GENEL BİLGİLERİ
+----------------------------------------
+🔢 Satır sayısı 1,000
+🔢 Sütun sayısı 7
+💾 Hafıza kullanımı 0.14 MB
+
+📋 SÜTUN TÜRLERİ
+----------------------------------------
+  float64 3 sütun
+  int64 2 sütun
+  object 2 sütun
+
+👀 VERİNİN İLK 5 SATIRI
+----------------------------------------
+   age        salary  experience  gender    education      score  high_earner
+0   40  70990.331549    5.299287  Female       Master  76.810627            1
+1   33  63869.505244    7.421925  Female  High School  88.032780            1
+2   42  50894.455549    4.830320  Female          PhD  80.861658            0
+3   53           NaN    6.768154  Female     Bachelor  70.875862            0
+4   32  60473.349704    0.425541    Male  High School  77.571990            1
+
+⚠️  EKSİK DEĞERLER
+----------------------------------------
+  salary 50 (5.0%)
+
+Devam etmek için ENTER tuşuna basınız...
+
+2. Veri kalitesi analizi...
+
+🔍 VERİ KALİTESİ ANALİZİ
+============================================================
+✅ Tekrarlanan satır yok
+
+📈 AYKIRI DEĞER ANALİZİ (Sayısal Sütunlar)
+--------------------------------------------------
+  age 11 aykırı değer (%1.1)
+  salary 10 aykırı değer (%1.0)
+  experience 6 aykırı değer (%0.6)
+  score 9 aykırı değer (%0.9)
+  high_earner 0 aykırı değer (%0.0)
+
+📊 KATEGORİK SÜTUN ANALİZİ
+--------------------------------------------------
+  gender 2 benzersiz değer (%0.2)
+  education 4 benzersiz değer (%0.4)
+
+✅ Veri kalitesi genel olarak iyi görünüyor!
+
+Görselleştirme için ENTER tuşuna basınız...
+
+3. Veri görselleştirme...
+
+📊 VERİ GÖRSELLEŞTİRME REHBERİ
+============================================================
+
+🔗 KORELASYON ANALİZİ
+--------------------------------------------------
+
+Ön işleme önerileri için ENTER tuşuna basınız...
+
+4. Ön işleme önerileri...
+
+🔧 VERİ ÖN İŞLEME ÖNERİLERİ
+============================================================
+📋 EKSİK DEĞER ÖNERİLERİ
+   salary Orta eksik (%5.0) → Medyan ile doldurma önerilir
+
+📏 NORMALİZASYON ÖNERİLERİ
+   age Normal aralık → MinMaxScaler kullanabilirsiniz
+   salary Geniş aralık (5894.2 - 97896.6) → StandardScaler önerilir
+   experience Normal aralık → MinMaxScaler kullanabilirsiniz
+   score Normal aralık → MinMaxScaler kullanabilirsiniz
+   high_earner Zaten normalize (0.000 - 1.000)
+
+🏷️  KATEGORİK DEĞİŞKEN ÖNERİLERİ
+   gender İkili kategori → LabelEncoder kullanın
+   education Az kategori (4) → OneHotEncoder kullanın
+
+💻 ÖNERİLER DOĞRULTUSUNDA ÖRNEK KOD
+============================================================
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, LabelEncoder, OneHotEncoder
+from sklearn.model_selection import train_test_split
+import os
+
+# Veriyi yükle
+data = pd.read_csv(r'cUsersASUSDesktopPython with AIYapay Zeka - AI Traning Kits02 Deep Learningdemo_dataset.csv')
+
+# Veri setinin temel bilgilerini göster
+print('📊 Veri Seti Bilgileri')
+print(f'Satır sayısı {len(data)}')
+print(f'Sütun sayısı {len(data.columns)}')
+print(f'Sütunlar {list(data.columns)}')
+print('nİlk 5 satır')
+print(data.head())
+
+# Eksik değerleri kontrol et
+missing_data = data.isnull().sum()
+if missing_data.any()
+    print('n⚠️ Eksik Değerler')
+    for col, missing_count in missing_data[missing_data  0].items()
+        print(f'  {col} {missing_count}')
+
+    # Eksik değerleri doldur
+    data.loc[data['salary'].isnull(), 'salary'] = data['salary'].median()
+
+else
+    print('✅ Eksik değer yok')
+
+# Kategorik sütunları encode et
+categorical_encoders = {}
+
+# gender sütunu için Label Encoding (2 kategori)
+categorical_encoders['gender'] = LabelEncoder()
+data['gender'] = categorical_encoders['gender'].fit_transform(data['gender'])
+
+# education sütunu için One-Hot Encoding (4 kategori)
+data = pd.get_dummies(data, columns=['education'], prefix='education')
+
+# Sayısal sütunları normalize et (hedef sütun hariç)
+scaler = StandardScaler()
+numeric_features = ['age', 'salary', 'experience', 'score']
+print(f'n📏 Normalize edilecek sayısal sütunlar {numeric_features}')
+
+# Normalizasyon öncesi istatistikler
+print('n📊 Normalizasyon Öncesi İstatistikler')
+print(data[numeric_features].describe())
+
+# Normalizasyonu uygula
+data[numeric_features] = scaler.fit_transform(data[numeric_features])
+
+# Normalizasyon sonrası istatistikler
+print('n📊 Normalizasyon Sonrası İstatistikler')
+print(data[numeric_features].describe())
+
+# Hedef sütunu (high_earner) sayısal - ek işlem gerekmiyor
+print(f'n🎯 Hedef sütunu high_earner (sayısal)')
+
+# Son veri seti durumu
+print(f'n📋 İşlenmiş Veri Seti')
+print(f'Boyut {data.shape}')
+print(f'Sütunlar {list(data.columns)}')
+
+# Özellik ve hedef değişkenleri ayır
+if 'high_earner' in data.columns
+    X = data.drop('high_earner', axis=1)
+    y = data['high_earner']
+else
+    print('❌ Hedef sütunu bulunamadı!')
+    print('Mevcut sütunlar', list(data.columns))
+    # En son sütunu hedef olarak kabul et
+    X = data.iloc[, -1]
+    y = data.iloc[, -1]
+    print(f'Son sütun hedef olarak seçildi {y.name}')
+
+# Eğitim ve test setlerine ayır
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Sonuçları göster
+print('n✅ Veri ön işleme tamamlandı!')
+print(f'📊 Eğitim seti boyutu {X_train.shape}')
+print(f'📊 Test seti boyutu {X_test.shape}')
+print(f'🎯 Hedef değişken dağılımı')
+if hasattr(y, 'value_counts')
+    print(y.value_counts())
+else
+    print(f'Min {y.min()}, Max {y.max()}, Ortalama {y.mean().2f}')
+
+# Opsiyonel Sonuçları kaydet
+save_choice = input('nİşlenmiş veriyi kaydetmek istiyor musunuz (yn) ')
+if save_choice.lower() == 'y'
+    processed_filename = 'processed_data.csv'
+    data.to_csv(processed_filename, index=False)
+    print(f'✅ İşlenmiş veri {processed_filename} dosyasına kaydedildi.')
+
+✅ Kod 'cUsersASUSDesktopPython with AIYapay Zeka - AI Traning Kits02 Deep Learningpreprocessing_code.py' dosyasına kaydedildi!
+💡 İpucu Kodu çalıştırmadan önce hedef sütun adını kontrol edin!
+
+🧪 OLUŞTURULAN KOD TEST EDİLİYOR...
+============================================================
+✅ Syntax kontrolü başarılı - kod hatalarız!
+✅ Tüm temel kod parçaları mevcut
+📄 Oluşturulan kod 95 satır
+✅ Kod boyutu uygun
+🚀 Kodu çalıştırmak için python preprocessing_code.py

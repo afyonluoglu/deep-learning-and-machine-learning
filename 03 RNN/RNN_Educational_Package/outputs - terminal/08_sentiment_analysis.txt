@@ -1,0 +1,360 @@
+======================================================================
+💬 SENTIMENT ANALİZİ - RNN İLE DUYGU ANALİZİ
+======================================================================
+
+==================================================
+📋 VERİ SETİ OLUŞTURMA VE HAZIRLIK
+==================================================
+📊 Sentetik duygu analizi veri seti oluşturuluyor...
+✅ Veri seti oluşturuldu:
+   Toplam: 320 örnek
+   Positive: 137
+   Negative: 143
+   Neutral: 40
+
+📊 VERİ SETİ İNCELEMESİ:
+------------------------------
+                                       text sentiment
+0         Regular performance and features.   neutral
+1          Helpful and informative content.  positive
+2            Makes me angry and frustrated.  negative
+3         Not what I expected from reviews!  negative
+4        This movie is terrible and boring!  negative
+5  Fantastic results exceeded expectations!  positive
+6          Causes headaches and irritation!  negative
+7          Leaves me feeling empty and sad.  negative
+8            Perfect solution for my needs!  positive
+9      Excellent quality and fast delivery!  positive
+
+Sentiment dağılımı:
+sentiment
+negative    143
+positive    137
+neutral      40
+Name: count, dtype: int64
+
+Metin istatistikleri:
+Ortalama karakter sayısı: 36.0
+Ortalama kelime sayısı: 5.2
+
+==================================================
+📋 METİN ÖN İŞLEME VE TEMİZLEME
+==================================================
+🧹 Metin ön işleme başlıyor...
+✅ 320 metin işlendi
+
+🔍 ÖRNEK İŞLEME SONUÇLARI:
+----------------------------------------
+Orijinal: Regular performance and features.
+İşlenmiş: regular performance and features
+
+Orijinal: Helpful and informative content.
+İşlenmiş: helpful and informative content
+
+Orijinal: Makes me angry and frustrated.
+İşlenmiş: makes me angry and frustrated
+
+Orijinal: Not what I expected from reviews!
+İşlenmiş: not what i expected from reviews!
+
+Orijinal: This movie is terrible and boring!
+İşlenmiş: this movie is terrible and boring!
+
+
+==================================================
+📋 TOKENIZATION VE SEQUENCE HAZIRLIĞI
+==================================================
+🔤 Tokenization ve sequence hazırlığı...
+✅ Sequence hazırlığı tamamlandı:
+   Vocabulary size: 242
+   Max sequence length: 50
+   Number of classes: 3
+   Classes: ['negative' 'neutral' 'positive']
+   Ortalama sequence length: 5.2
+   Max sequence length: 9
+   Min sequence length: 3
+
+X shape: (320, 50)
+y shape: (320,)
+
+==================================================
+📋 RNN MODEL MİMARİLERİ KARŞILAŞTIRMASI
+==================================================
+🏗️ Farklı RNN modelleri oluşturuluyor...
+✅ Simple RNN: 512,739 parameters
+✅ LSTM: 544,419 parameters
+✅ GRU: 534,051 parameters
+✅ Bidirectional LSTM: 540,387 parameters
+✅ Stacked LSTM: 555,811 parameters
+✅ CNN-RNN Hybrid: 598,371 parameters
+
+==================================================
+📋 MODEL EĞİTİMİ VE PERFORMANS KARŞILAŞTIRMASI
+==================================================
+📊 Veri bölümleme:
+   Train: 192 (60.0%)
+   Validation: 64 (20.0%)
+   Test: 64 (20.0%)
+🚀 Modeller eğitiliyor...
+
+📊 Simple RNN eğitiliyor...
+   ✅ Test Accuracy: 0.4531
+   📊 Test Loss: 1.0133
+   🏃 Epochs: 12
+
+📊 LSTM eğitiliyor...
+   ✅ Test Accuracy: 0.4531
+   📊 Test Loss: 1.0448
+   🏃 Epochs: 11
+
+📊 GRU eğitiliyor...
+   ✅ Test Accuracy: 0.4531
+   📊 Test Loss: 1.0356
+   🏃 Epochs: 11
+
+📊 Bidirectional LSTM eğitiliyor...
+   ✅ Test Accuracy: 0.9375
+   📊 Test Loss: 0.3585
+   🏃 Epochs: 29
+
+📊 Stacked LSTM eğitiliyor...
+
+   ✅ Test Accuracy: 0.4531
+   📊 Test Loss: 1.0194
+   🏃 Epochs: 11
+
+📊 CNN-RNN Hybrid eğitiliyor...
+
+   ✅ Test Accuracy: 0.4531
+   📊 Test Loss: 0.9849
+   🏃 Epochs: 14
+
+==================================================
+📋 SONUÇLAR VE GÖRSELLEŞTİRME
+==================================================
+🏆 EN İYİ MODEL: Bidirectional LSTM
+   Accuracy: 0.9375
+   Parameters: 540,387
+
+==================================================
+📋 MODEL PERFORMANS ANALİZİ
+==================================================
+📊 DETAYLANDIRILMIŞ PERFORMANS ANALİZİ:
+==================================================
+
+🎯 Simple RNN:
+   Test Accuracy: 0.4531
+   Test Loss: 1.0133
+   Parameters: 512,739
+   Epochs Trained: 12
+   Precision (macro avg): 0.1510
+   Recall (macro avg): 0.3333
+   F1-Score (macro avg): 0.2079
+
+🎯 LSTM:
+   Test Accuracy: 0.4531
+   Test Loss: 1.0448
+   Parameters: 544,419
+   Epochs Trained: 11
+   Precision (macro avg): 0.1510
+   Recall (macro avg): 0.3333
+   F1-Score (macro avg): 0.2079
+
+🎯 GRU:
+   Test Accuracy: 0.4531
+   Test Loss: 1.0356
+   Parameters: 534,051
+   Epochs Trained: 11
+   Precision (macro avg): 0.1510
+   Recall (macro avg): 0.3333
+   F1-Score (macro avg): 0.2079
+
+🎯 Bidirectional LSTM:
+   Test Accuracy: 0.9375
+   Test Loss: 0.3585
+   Parameters: 540,387
+   Epochs Trained: 29
+   Precision (macro avg): 0.9531
+   Recall (macro avg): 0.9221
+   F1-Score (macro avg): 0.9361
+
+🎯 Stacked LSTM:
+   Test Accuracy: 0.4531
+   Test Loss: 1.0194
+   Parameters: 555,811
+   Epochs Trained: 11
+   Precision (macro avg): 0.1510
+   Recall (macro avg): 0.3333
+   F1-Score (macro avg): 0.2079
+
+🎯 CNN-RNN Hybrid:
+   Test Accuracy: 0.4531
+   Test Loss: 0.9849
+   Parameters: 598,371
+   Epochs Trained: 14
+   Precision (macro avg): 0.1510
+   Recall (macro avg): 0.3333
+   F1-Score (macro avg): 0.2079
+
+==================================================
+📋 PRAKTİK SENTIMENT TAHMİN FONKSİYONU
+==================================================
+🔮 SENTIMENT TAHMİN ÖRNEKLERİ:
+----------------------------------------
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'This movie is absolutely fantastic and amazing!'
+Tahmin: POSITIVE (Güven: 0.999)
+Detaylar: negative: 0.000  neutral: 0.001  positive: 0.999
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'Terrible product, waste of money.'
+Tahmin: NEGATIVE (Güven: 0.978)
+Detaylar: negative: 0.978  neutral: 0.022  positive: 0.000
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'The product works fine, nothing special.'
+Tahmin: NEUTRAL (Güven: 0.827)
+Detaylar: negative: 0.040  neutral: 0.827  positive: 0.133
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'I love this so much, best purchase ever!'
+Tahmin: POSITIVE (Güven: 1.000)
+Detaylar: negative: 0.000  neutral: 0.000  positive: 1.000
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'Completely disappointed with the service.'
+Tahmin: NEUTRAL (Güven: 0.679)
+Detaylar: negative: 0.283  neutral: 0.679  positive: 0.037
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'Average quality, meets basic expectations.'
+Tahmin: POSITIVE (Güven: 0.784)
+Detaylar: negative: 0.007  neutral: 0.209  positive: 0.784
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'Outstanding performance, highly recommend!'
+Tahmin: POSITIVE (Güven: 0.992)
+Detaylar: negative: 0.000  neutral: 0.008  positive: 0.992
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'Worst experience of my life.'
+Tahmin: POSITIVE (Güven: 0.993)
+Detaylar: negative: 0.000  neutral: 0.007  positive: 0.993
+🧹 Metin ön işleme başlıyor...
+✅ 1 metin işlendi
+
+Metin: 'It's okay, does what it's supposed to do.'
+Tahmin: NEGATIVE (Güven: 0.607)
+Detaylar: negative: 0.607  neutral: 0.374  positive: 0.019
+
+==================================================
+📋 WORD EMBEDDİNG ANALİZİ
+==================================================
+📚 Word embedding analizi...
+Embedding matrix shape: (5000, 100)
+
+En sık kullanılan 20 kelime:
+ 1. and             (freq: 170) - embedding norm: 0.487
+ 2. product         (freq:  32) - embedding norm: 0.503
+ 3. experience      (freq:  31) - embedding norm: 0.311
+ 4. quality         (freq:  28) - embedding norm: 0.332
+ 5. this            (freq:  26) - embedding norm: 0.448
+ 6. really          (freq:  23) - embedding norm: 0.361
+ 7. performance     (freq:  21) - embedding norm: 0.290
+ 8. service         (freq:  21) - embedding norm: 0.346
+ 9. me              (freq:  19) - embedding norm: 0.475
+10. the             (freq:  19) - embedding norm: 0.391
+11. features        (freq:  18) - embedding norm: 0.463
+12. with            (freq:  18) - embedding norm: 0.685
+13. very            (freq:  18) - embedding norm: 0.309
+14. extremely       (freq:  18) - embedding norm: 0.428
+15. is              (freq:  16) - embedding norm: 0.442
+16. totally         (freq:  16) - embedding norm: 0.386
+17. quite           (freq:  16) - embedding norm: 0.332
+18. i               (freq:  15) - embedding norm: 0.441
+19. for             (freq:  15) - embedding norm: 0.364
+20. brings          (freq:  15) - embedding norm: 0.462
+
+==================================================
+📋 GELİŞTİRME ÖNERİLERİ VE İPUÇLARI
+==================================================
+
+🚀 SENTIMENT ANALİZİ İYİLEŞTİRME ÖNERİLERİ:
+
+📊 VERİ İYİLEŞTİRMELERİ:
+• Daha büyük ve çeşitli veri setleri kullanın
+• Gerçek sosyal medya verileri ekleyin
+• Data augmentation teknikleri uygulayın
+• Sarcasm ve irony örnekleri ekleyin
+• Domain-specific terminoloji dahil edin
+
+🧠 MODEL MİMARİ İYİLEŞTİRMELERİ:
+• Pre-trained embeddings (Word2Vec, GloVe, BERT)
+• Attention mechanism ekleyin
+• Transformer modelleri deneyin
+• Ensemble methods kullanın
+• Multi-task learning uygulayın
+
+🔧 HİPERPARAMETRE OPTİMİZASYONU:
+• Grid search veya Bayesian optimization
+• Learning rate scheduling
+• Dropout rate tuning
+• Embedding dimension optimization
+• Sequence length analysis
+
+📈 EVALUATION İYİLEŞTİRMELERİ:
+• Cross-validation kullanın
+• Stratified sampling uygulayın
+• Class imbalance handling
+• Per-class analysis yapın
+• Error analysis ve case study
+
+🛠️ PRODUKSİYON HAZİRLIĞI:
+• Model compression/quantization
+• Inference optimization
+• Batch prediction support
+• API wrapper development
+• Monitoring ve logging
+
+
+==================================================
+📋 ÖZET VE SONUÇLAR
+==================================================
+✅ Bu Sentiment Analysis modülünde öğrendikleriniz:
+  1. 💬 Metin sınıflandırma temelleri
+  2. 🧹 Comprehensive text preprocessing
+  3. 🔤 Tokenization ve sequence preparation
+  4. 🧠 Farklı RNN mimarileri
+  5. 📊 Model comparison ve evaluation
+  6. 🎯 Practical prediction pipeline
+  7. 📚 Word embedding analysis
+  8. 🚀 Production deployment considerations
+
+🏆 PERFORMANS ÖZETİ:
+   En iyi model: Bidirectional LSTM
+   Test accuracy: 0.9375
+   Parameters: 540,387
+   Classes: negative, neutral, positive
+
+💡 Ana çıkarımlar:
+  • Bidirectional modeller genelde daha iyi performans gösterir
+  • Dropout ve regularization overfitting'i önler
+  • Balanced dataset önemli
+  • Text preprocessing kritik rol oynar
+  • Model complexity vs performance trade-off
+
+📚 Sonraki modül: 09_time_series_prediction.py
+RNN ile gelişmiş zaman serisi tahmini öğreneceğiz!
+
+======================================================================
+✅ SENTIMENT ANALİZİ MODÜLÜ TAMAMLANDI!
+======================================================================

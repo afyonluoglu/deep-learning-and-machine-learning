@@ -104,7 +104,7 @@ def visualize_attention_concept():
     attention_weights = attention_weights / attention_weights.sum(axis=1, keepdims=True)
     
     im = axes[0, 0].imshow(attention_weights, cmap='Blues', interpolation='nearest')
-    axes[0, 0].set_title('🔍 Attention Alignment Matrix', fontweight='bold')
+    axes[0, 0].set_title('Attention Alignment Matrix', fontweight='bold')
     axes[0, 0].set_xlabel('Source Position (Encoder)')
     axes[0, 0].set_ylabel('Target Position (Decoder)')
     
@@ -132,7 +132,7 @@ def visualize_attention_concept():
     axes[0, 1].bar(time_steps + 0.2, attention_info, width=0.4,
                   alpha=0.7, color='blue', label='With Attention')
     
-    axes[0, 1].set_title('📊 Information Access Comparison', fontweight='bold')
+    axes[0, 1].set_title('Information Access Comparison', fontweight='bold')
     axes[0, 1].set_xlabel('Time Step')
     axes[0, 1].set_ylabel('Information Accessibility')
     axes[0, 1].legend()
@@ -165,7 +165,7 @@ def visualize_attention_concept():
                        ha='center', fontsize=8, 
                        bbox=dict(boxstyle='round,pad=0.2', facecolor='yellow', alpha=0.7))
     
-    axes[1, 0].set_title('🔗 Attention Connection Flow', fontweight='bold')
+    axes[1, 0].set_title('Attention Connection Flow', fontweight='bold')
     axes[1, 0].set_xlim(-0.5, 4.5)
     axes[1, 0].set_ylim(0, 2.5)
     axes[1, 0].text(2, 2.3, 'Encoder States', ha='center', fontweight='bold', color='blue')
@@ -189,7 +189,7 @@ def visualize_attention_concept():
     self_attention = self_attention / self_attention.sum(axis=1, keepdims=True)
     
     im2 = axes[1, 1].imshow(self_attention, cmap='Greens', interpolation='nearest')
-    axes[1, 1].set_title('🔍 Self-Attention Pattern', fontweight='bold')
+    axes[1, 1].set_title('Self-Attention Pattern', fontweight='bold')
     axes[1, 1].set_xlabel('Key Position')
     axes[1, 1].set_ylabel('Query Position')
     axes[1, 1].set_xticks(range(8))
@@ -311,7 +311,7 @@ def demonstrate_attention_implementations():
     
     # Visualization
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-    fig.suptitle('🔍 Attention Mechanisms Comparison', fontsize=14, fontweight='bold')
+    fig.suptitle('Attention Mechanisms Comparison', fontsize=14, fontweight='bold')
     
     # Bahdanau attention weights for first sample
     bahdanau_weights = attention_weights_b[0, :, 0].numpy()
@@ -503,7 +503,7 @@ def demonstrate_self_attention():
     
     # Plot attention patterns
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-    fig.suptitle('🔍 Self-Attention Patterns', fontsize=14, fontweight='bold')
+    fig.suptitle('Self-Attention Patterns', fontsize=14, fontweight='bold')
     
     # First sample attention matrix
     attention_matrix = attention_weights[0].numpy()
@@ -674,7 +674,7 @@ def visualize_attention_interpretability():
     
     # Visualization
     fig, axes = plt.subplots(2, 3, figsize=(18, 10))
-    fig.suptitle('🔍 Attention Interpretability Analysis', fontsize=16, fontweight='bold')
+    fig.suptitle('Attention Interpretability Analysis', fontsize=16, fontweight='bold')
     
     # Plot attention weights for different samples
     for i in range(6):

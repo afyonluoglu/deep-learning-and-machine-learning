@@ -1,0 +1,39 @@
+============================================================
+🎨 RNN MİMARİSİ GÖRSELLEŞTİRME
+============================================================
+🎨 RNN Mimarisi Diyagramı Oluşturuluyor...
+📊 Gizli Durum Evrimi Hesaplanıyor...
+
+📊 GİZLİ DURUM EVRİMİ SİMÜLASYONU
+----------------------------------------
+📖 Açık RNN Diyagramı Oluşturuluyor...
+⚖️ Ağırlık Paylaşımı Gösteriliyor...
+
+⚖️ AĞIRLIK PAYLAŞIMI KONSEPTİ
+----------------------------------------
+💡 Ağırlık paylaşımının faydaları:
+  ✅ Daha az parametre
+  ✅ Daha iyi genelleme
+  ✅ Translation invariance
+  ✅ Daha hızlı eğitim
+
+============================================================
+📋 GÖRSELLEŞTİRME ÖZETİ
+============================================================
+✅ Bu dosyada öğrendiğiniz görselleştirmeler:
+  1. 🏗️  RNN mimarisi diyagramı
+  2. 📊  Gizli durum evrimi
+  3. 📖  Katlanmış vs Açık RNN
+  4. ⚖️  Ağırlık paylaşımı konsepti
+
+💡 Bu görselleştirmeler sayesinde:
+  • RNN'lerin zaman boyunca nasıl çalıştığını gördünüz
+  • Gizli durumların nasıl evrim geçirdiğini anladınız
+  • Ağırlık paylaşımının önemini kavradınız
+
+📚 Sonraki dosya: 04_vanilla_rnn.py
+Vanilla RNN'lerin detaylı implementasyonunu göreceğiz!
+
+============================================================
+✅ GÖRSELLEŞTİRME TAMAMLANDI!
+============================================================

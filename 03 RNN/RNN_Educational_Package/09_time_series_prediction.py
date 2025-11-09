@@ -181,11 +181,11 @@ def exploratory_time_series_analysis(df):
     
     # Visualizations
     fig, axes = plt.subplots(4, 3, figsize=(20, 16))
-    fig.suptitle('📈 Zaman Serisi Exploratory Analysis', fontsize=16, fontweight='bold')
+    fig.suptitle('Zaman Serisi Exploratory Analysis', fontsize=16, fontweight='bold')
     
     # 1. Ana zaman serisi
     axes[0, 0].plot(df['timestamp'], df['value'], 'b-', alpha=0.7, linewidth=0.8)
-    axes[0, 0].set_title('📈 Orijinal Zaman Serisi', fontweight='bold')
+    axes[0, 0].set_title('Orijinal Zaman Serisi', fontweight='bold')
     axes[0, 0].set_xlabel('Tarih')
     axes[0, 0].set_ylabel('Değer')
     axes[0, 0].grid(True, alpha=0.3)
@@ -194,13 +194,13 @@ def exploratory_time_series_analysis(df):
     axes[0, 1].plot(df['timestamp'], df['trend'], 'r-', label='Trend', linewidth=2)
     axes[0, 1].plot(df['timestamp'], df['seasonal_yearly'], 'g-', label='Yıllık', alpha=0.7)
     axes[0, 1].plot(df['timestamp'], df['cycles'], 'm-', label='Cycles', alpha=0.7)
-    axes[0, 1].set_title('🔄 Bileşen Ayrıştırma', fontweight='bold')
+    axes[0, 1].set_title('Bileşen Ayrıştırma', fontweight='bold')
     axes[0, 1].legend()
     axes[0, 1].grid(True, alpha=0.3)
     
     # 3. Volatility
     axes[0, 2].plot(df['timestamp'], df['volatility'], 'orange', alpha=0.8)
-    axes[0, 2].set_title('📊 Volatilite Evrimi', fontweight='bold')
+    axes[0, 2].set_title('Volatilite Evrimi', fontweight='bold')
     axes[0, 2].set_xlabel('Tarih')
     axes[0, 2].set_ylabel('Volatilite')
     axes[0, 2].grid(True, alpha=0.3)
@@ -209,13 +209,13 @@ def exploratory_time_series_analysis(df):
     axes[1, 0].hist(df['value'].dropna(), bins=50, alpha=0.7, color='skyblue', edgecolor='black')
     axes[1, 0].axvline(df['value'].mean(), color='red', linestyle='--', label='Mean')
     axes[1, 0].axvline(df['value'].median(), color='green', linestyle='--', label='Median')
-    axes[1, 0].set_title('📊 Değer Dağılımı', fontweight='bold')
+    axes[1, 0].set_title('Değer Dağılımı', fontweight='bold')
     axes[1, 0].legend()
     axes[1, 0].grid(True, alpha=0.3)
     
     # 5. Returns distribution
     axes[1, 1].hist(df['returns'].dropna(), bins=50, alpha=0.7, color='lightgreen', edgecolor='black')
-    axes[1, 1].set_title('📈 Returns Dağılımı', fontweight='bold')
+    axes[1, 1].set_title('Returns Dağılımı', fontweight='bold')
     axes[1, 1].set_xlabel('Returns')
     axes[1, 1].grid(True, alpha=0.3)
     
@@ -237,7 +237,7 @@ def exploratory_time_series_analysis(df):
     axes[1, 2].axhline(y=0, color='black', linestyle='-', alpha=0.5)
     axes[1, 2].axhline(y=0.1, color='red', linestyle='--', alpha=0.5)
     axes[1, 2].axhline(y=-0.1, color='red', linestyle='--', alpha=0.5)
-    axes[1, 2].set_title('📈 Autocorrelation Function', fontweight='bold')
+    axes[1, 2].set_title('Autocorrelation Function', fontweight='bold')
     axes[1, 2].set_xlabel('Lag')
     axes[1, 2].set_ylabel('ACF')
     axes[1, 2].grid(True, alpha=0.3)
@@ -245,7 +245,7 @@ def exploratory_time_series_analysis(df):
     # 7. Seasonality analysis
     monthly_avg = df.groupby('month')['value'].mean()
     axes[2, 0].bar(monthly_avg.index, monthly_avg.values, alpha=0.7, color='orange')
-    axes[2, 0].set_title('📅 Aylık Ortalamalar', fontweight='bold')
+    axes[2, 0].set_title('Aylık Ortalamalar', fontweight='bold')
     axes[2, 0].set_xlabel('Ay')
     axes[2, 0].set_ylabel('Ortalama Değer')
     axes[2, 0].grid(True, alpha=0.3)
@@ -254,7 +254,7 @@ def exploratory_time_series_analysis(df):
     weekly_avg = df.groupby('day_of_week')['value'].mean()
     day_names = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     axes[2, 1].bar(range(7), weekly_avg.values, alpha=0.7, color='green')
-    axes[2, 1].set_title('📅 Haftalık Ortalamalar', fontweight='bold')
+    axes[2, 1].set_title('Haftalık Ortalamalar', fontweight='bold')
     axes[2, 1].set_xlabel('Gün')
     axes[2, 1].set_ylabel('Ortalama Değer')
     axes[2, 1].set_xticks(range(7))
@@ -266,13 +266,13 @@ def exploratory_time_series_analysis(df):
     axes[2, 2].plot(df['timestamp'], df['ma_7'], 'r-', label='MA-7', linewidth=2)
     axes[2, 2].plot(df['timestamp'], df['ma_30'], 'g-', label='MA-30', linewidth=2)
     axes[2, 2].plot(df['timestamp'], df['ma_365'], 'orange', label='MA-365', linewidth=2)
-    axes[2, 2].set_title('📊 Moving Averages', fontweight='bold')
+    axes[2, 2].set_title('Moving Averages', fontweight='bold')
     axes[2, 2].legend()
     axes[2, 2].grid(True, alpha=0.3)
     
     # 10. Volatility clustering
     axes[3, 0].plot(df['timestamp'], df['rolling_std_30'], 'purple', alpha=0.8)
-    axes[3, 0].set_title('📊 30-Day Rolling Volatility', fontweight='bold')
+    axes[3, 0].set_title('30-Day Rolling Volatility', fontweight='bold')
     axes[3, 0].set_xlabel('Tarih')
     axes[3, 0].set_ylabel('Rolling Std')
     axes[3, 0].grid(True, alpha=0.3)
@@ -281,7 +281,7 @@ def exploratory_time_series_analysis(df):
     regime_colors = df['regime'].map({0: 'red', 1: 'blue'})
     scatter = axes[3, 1].scatter(df['timestamp'], df['value'], 
                                 c=regime_colors, alpha=0.6, s=1)
-    axes[3, 1].set_title('🔄 Regime Switching', fontweight='bold')
+    axes[3, 1].set_title('Regime Switching', fontweight='bold')
     axes[3, 1].set_xlabel('Tarih')
     axes[3, 1].set_ylabel('Değer')
     axes[3, 1].grid(True, alpha=0.3)
@@ -294,7 +294,7 @@ def exploratory_time_series_analysis(df):
     # Only positive frequencies
     pos_freq_idx = fft_freq > 0
     axes[3, 2].plot(fft_freq[pos_freq_idx], np.abs(fft_vals[pos_freq_idx]), 'b-')
-    axes[3, 2].set_title('🌊 Frequency Domain Analysis', fontweight='bold')
+    axes[3, 2].set_title('Frequency Domain Analysis', fontweight='bold')
     axes[3, 2].set_xlabel('Frequency')
     axes[3, 2].set_ylabel('Magnitude')
     axes[3, 2].set_xlim(0, 0.1)  # Focus on low frequencies
@@ -689,8 +689,8 @@ def train_time_series_models(models, X_train, y_train, X_val, y_val):
         val_mae = min(history.history['val_mae'])
         epochs = len(history.history['loss'])
         
-        print(f"   ✅ Best val_loss: {val_loss:.6f}")
-        print(f"   📊 Best val_mae: {val_mae:.6f}")
+        print(f"   ✅ Best val_loss : {val_loss:.6f}")
+        print(f"   📊 Best val_mae  : {val_mae:.6f}")
         print(f"   ⏱️ Epochs trained: {epochs}")
     
     return histories
@@ -788,7 +788,7 @@ print_section("SONUÇLAR VE GÖRSELLEŞTİRME")
 
 # Comprehensive results visualization
 fig, axes = plt.subplots(4, 3, figsize=(20, 16))
-fig.suptitle('📈 Time Series Forecasting - Comprehensive Results', fontsize=16, fontweight='bold')
+fig.suptitle('Time Series Forecasting - Comprehensive Results', fontsize=16, fontweight='bold')
 
 # 1. Training curves - Loss
 colors = plt.cm.tab10(np.linspace(0, 1, len(models)))
@@ -797,7 +797,7 @@ for i, (name, history) in enumerate(histories.items()):
                    label=f'{name}', linewidth=2, alpha=0.7)
     axes[0, 0].plot(history.history['val_loss'], color=colors[i], 
                    linestyle='--', linewidth=2, alpha=0.7)
-axes[0, 0].set_title('📉 Training & Validation Loss', fontweight='bold')
+axes[0, 0].set_title('Training & Validation Loss', fontweight='bold')
 axes[0, 0].set_xlabel('Epoch')
 axes[0, 0].set_ylabel('Loss')
 axes[0, 0].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
@@ -810,7 +810,7 @@ for i, (name, history) in enumerate(histories.items()):
                    label=f'{name}', linewidth=2, alpha=0.7)
     axes[0, 1].plot(history.history['val_mae'], color=colors[i], 
                    linestyle='--', linewidth=2, alpha=0.7)
-axes[0, 1].set_title('📊 Training & Validation MAE', fontweight='bold')
+axes[0, 1].set_title('Training & Validation MAE', fontweight='bold')
 axes[0, 1].set_xlabel('Epoch')
 axes[0, 1].set_ylabel('MAE')
 axes[0, 1].legend(bbox_to_anchor=(1.05, 1), loc='upper left')
@@ -829,7 +829,7 @@ bars1 = axes[0, 2].bar(x - width/2, mae_values, width,
 bars2 = axes[0, 2].bar(x + width/2, rmse_values, width,
                       label='RMSE', alpha=0.7, color='red')
 
-axes[0, 2].set_title('🎯 Test Performance Comparison', fontweight='bold')
+axes[0, 2].set_title('Test Performance Comparison', fontweight='bold')
 axes[0, 2].set_xlabel('Model')
 axes[0, 2].set_ylabel('Error')
 axes[0, 2].set_xticks(x)
@@ -841,7 +841,7 @@ axes[0, 2].grid(True, alpha=0.3)
 r2_values = [results[name]['r2'] for name in model_names]
 bars = axes[1, 0].bar(range(len(model_names)), r2_values,
                      color=colors[:len(model_names)], alpha=0.7)
-axes[1, 0].set_title('📊 R² Scores', fontweight='bold')
+axes[1, 0].set_title('R² Scores', fontweight='bold')
 axes[1, 0].set_xlabel('Model')
 axes[1, 0].set_ylabel('R²')
 axes[1, 0].set_xticks(range(len(model_names)))
@@ -858,7 +858,7 @@ for bar, r2 in zip(bars, r2_values):
 mape_values = [results[name]['mape'] for name in model_names]
 bars = axes[1, 1].bar(range(len(model_names)), mape_values,
                      color=colors[:len(model_names)], alpha=0.7)
-axes[1, 1].set_title('📈 MAPE Values', fontweight='bold')
+axes[1, 1].set_title('MAPE Values', fontweight='bold')
 axes[1, 1].set_xlabel('Model')
 axes[1, 1].set_ylabel('MAPE (%)')
 axes[1, 1].set_xticks(range(len(model_names)))
@@ -869,7 +869,7 @@ axes[1, 1].grid(True, alpha=0.3)
 dir_acc_values = [results[name]['directional_accuracy'] for name in model_names]
 bars = axes[1, 2].bar(range(len(model_names)), dir_acc_values,
                      color=colors[:len(model_names)], alpha=0.7)
-axes[1, 2].set_title('🎯 Directional Accuracy', fontweight='bold')
+axes[1, 2].set_title('Directional Accuracy', fontweight='bold')
 axes[1, 2].set_xlabel('Model')
 axes[1, 2].set_ylabel('Accuracy')
 axes[1, 2].set_xticks(range(len(model_names)))
@@ -884,7 +884,7 @@ axes[2, 0].scatter(param_counts, mae_values,
 for i, name in enumerate(model_names):
     axes[2, 0].annotate(name.replace(' ', '\n'), (param_counts[i], mae_values[i]),
                        xytext=(5, 5), textcoords='offset points', fontsize=8)
-axes[2, 0].set_title('⚖️ Parameters vs MAE', fontweight='bold')
+axes[2, 0].set_title('Parameters vs MAE', fontweight='bold')
 axes[2, 0].set_xlabel('Parameter Count')
 axes[2, 0].set_ylabel('MAE')
 axes[2, 0].grid(True, alpha=0.3)
@@ -894,7 +894,7 @@ training_epochs = [results[name]['training_epochs'] for name in model_names]
 efficiency = [mae / epoch for mae, epoch in zip(mae_values, training_epochs)]
 axes[2, 1].bar(range(len(model_names)), efficiency,
               color=colors[:len(model_names)], alpha=0.7)
-axes[2, 1].set_title('⚡ Training Efficiency (MAE/Epoch)', fontweight='bold')
+axes[2, 1].set_title('Training Efficiency (MAE/Epoch)', fontweight='bold')
 axes[2, 1].set_xlabel('Model')
 axes[2, 1].set_ylabel('MAE per Epoch')
 axes[2, 1].set_xticks(range(len(model_names)))
@@ -919,7 +919,7 @@ for i, idx in enumerate(sample_indices):
         ax.fill_between(steps, actual - np.std(actual), actual + np.std(actual),
                        alpha=0.2, color='blue')
         
-        ax.set_title(f'🔮 Sample {i+1}: {FORECAST_HORIZON}-Step Forecast', fontweight='bold')
+        ax.set_title(f'Sample {i+1}: {FORECAST_HORIZON}-Step Forecast', fontweight='bold')
         ax.set_xlabel('Forecast Step')
         ax.set_ylabel('Value')
         ax.legend()
@@ -932,7 +932,7 @@ residuals = y_test_flat - best_predictions_flat
 
 axes[3, 1].scatter(best_predictions_flat, residuals, alpha=0.5, s=1)
 axes[3, 1].axhline(y=0, color='red', linestyle='--')
-axes[3, 1].set_title(f'📊 Residual Plot - {best_model_name}', fontweight='bold')
+axes[3, 1].set_title(f'Residual Plot - {best_model_name}', fontweight='bold')
 axes[3, 1].set_xlabel('Predicted Values')
 axes[3, 1].set_ylabel('Residuals')
 axes[3, 1].grid(True, alpha=0.3)
@@ -941,7 +941,7 @@ axes[3, 1].grid(True, alpha=0.3)
 axes[3, 2].hist(residuals, bins=30, alpha=0.7, color='skyblue', edgecolor='black')
 axes[3, 2].axvline(np.mean(residuals), color='red', linestyle='--', label='Mean')
 axes[3, 2].axvline(0, color='green', linestyle='-', label='Zero')
-axes[3, 2].set_title('📊 Residual Distribution', fontweight='bold')
+axes[3, 2].set_title('Residual Distribution', fontweight='bold')
 axes[3, 2].set_xlabel('Residual Value')
 axes[3, 2].set_ylabel('Frequency')
 axes[3, 2].legend()

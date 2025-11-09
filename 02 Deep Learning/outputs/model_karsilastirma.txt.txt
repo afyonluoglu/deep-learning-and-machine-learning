@@ -1,0 +1,70 @@
+📦 Gerekli kütüphaneler kontrol ediliyor...
+--------------------------------------------------
+✅ numpy kütüphanesi zaten yüklü
+✅ pandas kütüphanesi zaten yüklü
+✅ tensorflow kütüphanesi zaten yüklü
+✅ matplotlib kütüphanesi zaten yüklü
+✅ scikit-learn kütüphanesi zaten yüklü
+✅ pygame kütüphanesi zaten yüklü
+🚀 Tüm kütüphaneler hazır! Program başlatılıyor...
+-------------------------------------------------- 
+
+ ======================================================================
+          DEEP LEARNING EĞİTİM PROGRAMI  - TensorFlow Keras
+====================================================================== 
+
+  TensorFlow sürümü: 2.20.0 
+ ⚠️  TensorFlow sürümünüz GPU'yu desteklemiyor. 2.11 veya altı bir sürüm yükleyin. 
+
+ ✨  Kullanılabilir kaynaklar (CPU/GPU): [LogicalDevice(name='/device:CPU:0', device_type='CPU')]
+🟢 CPU çekirdek sayısı: 32
+ ⚠️  GPU'ya erişilemedi.  
+
+  --- Ana Menü: ------------------------------------------------------- 
+🎯  Deep Learning Eğitim Seçenekleri:
+   1 - Model Eğitimi (Classification)
+   2 - Model Eğitimi (Regression)
+   3 - 📚 Tutorial Modu (Deep Learning Kavramları)
+   4 - 🔧 Hiperparametre Optimizasyonu Rehberi
+   5 - 📊 Model Karşılaştırma Aracı
+   6 - 🔍 Veri Analizi ve Ön İşleme Rehberi
+   7 - ⚙️  Gelişmiş Ayarlar
+   Default: Model Eğitimi - Classification (knn_purchase_history.csv)
+======================================================================
+Seçiminizi yapın:
+Seçiminiz (E: exit): 5
+🎮 DEMO: Model Karşılaştırma Aracı
+📊 MODEL DEĞERLENDİRME RAPORU
+============================================================
+
+🏆 EN İYİ DOĞRULUK: Karmaşık Model (6 Katman)
+   Test Doğruluğu: 0.9100
+   Mimari: 6x32
+
+⚡ EN HIZLI EĞİTİM: Basit Model (2 Katman)
+   Eğitim Süresi: 15.0 saniye
+   Test Doğruluğu: 0.8200
+
+🎯 EN KARALI: Derin Model (4 Katman)
+   Kararlılık Skoru: 0.9260
+   Test Doğruluğu: 0.8900
+
+🛡️  EN AZ OVERFITTING: Basit Model (2 Katman)
+   Overfitting Skoru: 0.0000
+   Test Doğruluğu: 0.8200
+
+💡 ÖNERİ:
+   Genel performans için en iyi: Derin Model (4 Katman)
+   Composite Score: 0.8983
+
+📋 DETAYLI KARŞILAŞTIRMA:
+----------------------------------------------------------------------------------------------------
+Model                Test Acc   Overfitting  Süre(s)    Kararlılık   Composite
+----------------------------------------------------------------------------------------------------
+Derin Model (4 Katman) 0.8900     0.0000       45.0       0.9260       0.8983
+Geniş Model (2 Katman) 0.8500     0.0000       25.0       0.9241       0.8954
+Basit Model (2 Katman) 0.8200     0.0000       15.0       0.9149       0.8910
+Karmaşık Model (6 Katman) 0.9100     0.1068       75.0       0.9208       0.8606
+
+Görsel dashboard'u görmek istiyor musunuz? (y/n): y
+Sonuçları kaydetmek istiyor musunuz? (y/n): n

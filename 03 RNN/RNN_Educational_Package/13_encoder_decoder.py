@@ -87,7 +87,7 @@ def visualize_encoder_decoder_concept():
     """Encoder-Decoder kavramını görselleştirir"""
     
     fig, axes = plt.subplots(2, 2, figsize=(16, 12))
-    fig.suptitle('🔄 Encoder-Decoder Architecture Concept', fontsize=16, fontweight='bold')
+    fig.suptitle('Encoder-Decoder Architecture Concept', fontsize=16, fontweight='bold')
     
     # 1. Basic encoder-decoder flow
     ax = axes[0, 0]
@@ -125,7 +125,7 @@ def visualize_encoder_decoder_concept():
             ax.arrow(pos + 0.1, 2, 0.8, 0, head_width=0.1, head_length=0.05, 
                     fc='red', ec='red')
     
-    ax.set_title('🔄 Basic Encoder-Decoder Flow', fontweight='bold')
+    ax.set_title('Basic Encoder-Decoder Flow', fontweight='bold')
     ax.set_xlim(-0.5, 9)
     ax.set_ylim(1.5, 2.5)
     ax.text(1.5, 2.4, 'ENCODER', ha='center', fontweight='bold', color='blue', fontsize=12)
@@ -144,7 +144,7 @@ def visualize_encoder_decoder_concept():
     ax.plot(sequence_lengths, information_loss, 'ro-', linewidth=2, 
            label='Information Loss %', markersize=6)
     
-    ax.set_title('📊 Information Bottleneck Problem', fontweight='bold')
+    ax.set_title('Information Bottleneck Problem', fontweight='bold')
     ax.set_xlabel('Input Sequence Length')
     ax.set_ylabel('Information Capacity')
     ax.legend()
@@ -191,7 +191,7 @@ def visualize_encoder_decoder_concept():
         ax.annotate(arch, (comp, perf), xytext=(5, 5), textcoords='offset points',
                    fontsize=8, fontweight='bold')
     
-    ax.set_title('⚖️ Architecture Trade-offs', fontweight='bold')
+    ax.set_title('Architecture Trade-offs', fontweight='bold')
     ax.set_xlabel('Complexity')
     ax.set_ylabel('Performance (%)')
     ax.grid(True, alpha=0.3)
@@ -550,7 +550,7 @@ def analyze_encoder_decoder_performance():
     
     # Visualize different architectural choices
     fig, axes = plt.subplots(2, 2, figsize=(15, 12))
-    fig.suptitle('🔄 Encoder-Decoder Performance Analysis', fontsize=16, fontweight='bold')
+    fig.suptitle('Encoder-Decoder Performance Analysis', fontsize=16, fontweight='bold')
     
     # 1. Parameter count comparison
     model_names = ['Basic', 'Bidirectional', 'Multi-layer', 'Skip Connections']
@@ -562,7 +562,7 @@ def analyze_encoder_decoder_performance():
     ]
     
     bars = axes[0, 0].bar(model_names, param_counts, color=['blue', 'green', 'orange', 'red'], alpha=0.7)
-    axes[0, 0].set_title('📊 Parameter Count Comparison', fontweight='bold')
+    axes[0, 0].set_title('Parameter Count Comparison', fontweight='bold')
     axes[0, 0].set_ylabel('Parameter Count')
     axes[0, 0].tick_params(axis='x', rotation=45)
     axes[0, 0].grid(True, alpha=0.3)
@@ -583,7 +583,7 @@ def analyze_encoder_decoder_performance():
         axes[0, 1].annotate(name, (comp, perf), xytext=(5, 5), 
                            textcoords='offset points', fontsize=9, fontweight='bold')
     
-    axes[0, 1].set_title('⚖️ Performance vs Complexity', fontweight='bold')
+    axes[0, 1].set_title('Performance vs Complexity', fontweight='bold')
     axes[0, 1].set_xlabel('Complexity Score')
     axes[0, 1].set_ylabel('Performance Score')
     axes[0, 1].grid(True, alpha=0.3)
@@ -604,7 +604,7 @@ def analyze_encoder_decoder_performance():
     axes[1, 0].plot(epochs, multi_loss, 'orange', label='Multi-layer', linewidth=2)
     axes[1, 0].plot(epochs, skip_loss, 'r-', label='Skip Connections', linewidth=2)
     
-    axes[1, 0].set_title('📉 Training Loss Curves', fontweight='bold')
+    axes[1, 0].set_title('Training Loss Curves', fontweight='bold')
     axes[1, 0].set_xlabel('Epoch')
     axes[1, 0].set_ylabel('Loss')
     axes[1, 0].legend()
@@ -625,7 +625,7 @@ def analyze_encoder_decoder_performance():
     axes[1, 1].bar(x + 0.5*width, multi_scores, width, label='Multi-layer', alpha=0.7)
     axes[1, 1].bar(x + 1.5*width, skip_scores, width, label='Skip Connections', alpha=0.7)
     
-    axes[1, 1].set_title('🎯 Use Case Performance', fontweight='bold')
+    axes[1, 1].set_title('Use Case Performance', fontweight='bold')
     axes[1, 1].set_xlabel('Use Case')
     axes[1, 1].set_ylabel('Performance Score')
     axes[1, 1].set_xticks(x)
@@ -729,7 +729,7 @@ def practical_encoder_decoder_applications():
     
     # Visualization
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
-    fig.suptitle('🔄 Practical Encoder-Decoder Applications', fontsize=14, fontweight='bold')
+    fig.suptitle('Practical Encoder-Decoder Applications', fontsize=14, fontweight='bold')
     
     # Number sequence lengths
     seq_lengths = [len(pair[0]) for pair in number_data[:50]]

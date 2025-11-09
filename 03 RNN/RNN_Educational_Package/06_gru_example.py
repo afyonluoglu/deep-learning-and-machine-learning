@@ -75,14 +75,14 @@ def visualize_gru_gates():
     """GRU gate mekanizmalarını görselleştirir"""
     
     fig, axes = plt.subplots(2, 2, figsize=(15, 10))
-    fig.suptitle('🚪 GRU Gate Mekanizmaları', fontsize=16, fontweight='bold')
+    fig.suptitle('GRU Gate Mekanizmaları', fontsize=16, fontweight='bold')
     
     x = np.linspace(-5, 5, 1000)
     
     # Reset Gate
     reset_gate = 1 / (1 + np.exp(-x))  # Sigmoid
     axes[0, 0].plot(x, reset_gate, 'r-', linewidth=3, label='Reset Gate')
-    axes[0, 0].set_title('🔄 Reset Gate (r_t)', fontweight='bold')
+    axes[0, 0].set_title('Reset Gate (r_t)', fontweight='bold')
     axes[0, 0].set_xlabel('Input')
     axes[0, 0].set_ylabel('Gate Value (0-1)')
     axes[0, 0].grid(True, alpha=0.3)
@@ -92,7 +92,7 @@ def visualize_gru_gates():
     # Update Gate
     update_gate = 1 / (1 + np.exp(-x))
     axes[0, 1].plot(x, update_gate, 'b-', linewidth=3, label='Update Gate')
-    axes[0, 1].set_title('🔄 Update Gate (z_t)', fontweight='bold')
+    axes[0, 1].set_title('Update Gate (z_t)', fontweight='bold')
     axes[0, 1].set_xlabel('Input')
     axes[0, 1].set_ylabel('Gate Value (0-1)')
     axes[0, 1].grid(True, alpha=0.3)
@@ -102,7 +102,7 @@ def visualize_gru_gates():
     # Candidate Hidden State
     candidate = np.tanh(x)
     axes[1, 0].plot(x, candidate, 'g-', linewidth=3, label='tanh(candidate)')
-    axes[1, 0].set_title('🧠 Candidate Hidden State', fontweight='bold')
+    axes[1, 0].set_title('Candidate Hidden State', fontweight='bold')
     axes[1, 0].set_xlabel('Input')
     axes[1, 0].set_ylabel('Candidate Value (-1 to 1)')
     axes[1, 0].grid(True, alpha=0.3)
@@ -244,7 +244,7 @@ def comprehensive_gru_lstm_comparison():
     
     # Sonuçları görselleştir
     fig, axes = plt.subplots(3, 3, figsize=(18, 15))
-    fig.suptitle('🌀 GRU vs LSTM Kapsamlı Karşılaştırma', fontsize=16, fontweight='bold')
+    fig.suptitle('GRU vs LSTM Kapsamlı Karşılaştırma', fontsize=16, fontweight='bold')
     
     # Accuracy karşılaştırması
     dataset_names = list(results.keys())
@@ -259,7 +259,7 @@ def comprehensive_gru_lstm_comparison():
     bars2 = axes[0, 0].bar(x + width/2, lstm_accs, width,
                           label='LSTM', alpha=0.7, color='red')
     
-    axes[0, 0].set_title('🎯 Validation Accuracy', fontweight='bold')
+    axes[0, 0].set_title('Validation Accuracy', fontweight='bold')
     axes[0, 0].set_xlabel('Dataset')
     axes[0, 0].set_ylabel('Accuracy')
     axes[0, 0].set_xticks(x)
@@ -276,7 +276,7 @@ def comprehensive_gru_lstm_comparison():
     bars4 = axes[0, 1].bar(x + width/2, lstm_params, width,
                           label='LSTM', alpha=0.7, color='red')
     
-    axes[0, 1].set_title('🔧 Parameter Count', fontweight='bold')
+    axes[0, 1].set_title('Parameter Count', fontweight='bold')
     axes[0, 1].set_xlabel('Dataset')
     axes[0, 1].set_ylabel('Parameters')
     axes[0, 1].set_xticks(x)
@@ -293,7 +293,7 @@ def comprehensive_gru_lstm_comparison():
     bars6 = axes[0, 2].bar(x + width/2, lstm_times, width,
                           label='LSTM', alpha=0.7, color='red')
     
-    axes[0, 2].set_title('⏱️ Training Time (seconds)', fontweight='bold')
+    axes[0, 2].set_title('Training Time (seconds)', fontweight='bold')
     axes[0, 2].set_xlabel('Dataset')
     axes[0, 2].set_ylabel('Time (s)')
     axes[0, 2].set_xticks(x)
@@ -313,7 +313,7 @@ def comprehensive_gru_lstm_comparison():
         ax.plot(lstm_history.history['val_accuracy'], 'r-', 
                label='LSTM', linewidth=2)
         
-        ax.set_title(f'📈 {dataset_name} - Validation Accuracy', fontweight='bold')
+        ax.set_title(f'{dataset_name} - Validation Accuracy', fontweight='bold')
         ax.set_xlabel('Epoch')
         ax.set_ylabel('Accuracy')
         ax.legend()
@@ -331,7 +331,7 @@ def comprehensive_gru_lstm_comparison():
     bars8 = axes[2, 0].bar(x_comp + width/2, lstm_complexity, width,
                           label='LSTM', alpha=0.7, color='red')
     
-    axes[2, 0].set_title('🔧 Architecture Complexity', fontweight='bold')
+    axes[2, 0].set_title('Architecture Complexity', fontweight='bold')
     axes[2, 0].set_xlabel('Component')
     axes[2, 0].set_ylabel('Relative Complexity')
     axes[2, 0].set_xticks(x_comp)
@@ -350,7 +350,7 @@ def comprehensive_gru_lstm_comparison():
     axes[2, 1].scatter(all_lstm_params, all_lstm_acc, s=100, alpha=0.7, 
                       color='red', label='LSTM')
     
-    axes[2, 1].set_title('🎯 Accuracy vs Parameters', fontweight='bold')
+    axes[2, 1].set_title('Accuracy vs Parameters', fontweight='bold')
     axes[2, 1].set_xlabel('Parameter Count')
     axes[2, 1].set_ylabel('Accuracy')
     axes[2, 1].legend()
@@ -377,7 +377,7 @@ def comprehensive_gru_lstm_comparison():
     axes[2, 2].text(0.05, 0.95, table_text, transform=axes[2, 2].transAxes,
                    fontsize=10, verticalalignment='top',
                    bbox=dict(boxstyle='round', facecolor='lightgray', alpha=0.8))
-    axes[2, 2].set_title('⚖️ Avantaj/Dezavantaj', fontweight='bold')
+    axes[2, 2].set_title('Avantaj/Dezavantaj', fontweight='bold')
     
     plt.tight_layout()
     plt.show()
@@ -427,14 +427,14 @@ def gru_time_series_example():
     
     plt.subplot(3, 2, 1)
     plt.plot(time_steps[:500], ts_data[:500], 'b-', linewidth=1, alpha=0.8)
-    plt.title('📈 Zaman Serisi - İlk 500 Nokta', fontweight='bold')
+    plt.title('Zaman Serisi - İlk 500 Nokta', fontweight='bold')
     plt.xlabel('Zaman')
     plt.ylabel('Değer')
     plt.grid(True, alpha=0.3)
     
     plt.subplot(3, 2, 2)
     plt.hist(ts_data, bins=50, alpha=0.7, color='skyblue', edgecolor='black')
-    plt.title('📊 Veri Dağılımı', fontweight='bold')
+    plt.title('Veri Dağılımı', fontweight='bold')
     plt.xlabel('Değer')
     plt.ylabel('Frekans')
     plt.grid(True, alpha=0.3)
@@ -444,7 +444,7 @@ def gru_time_series_example():
     plt.plot(time_steps[:365], seasonal_yearly[:365], label='Yıllık', linewidth=2)
     plt.plot(time_steps[:365], seasonal_monthly[:365], label='Aylık', linewidth=2)
     plt.plot(time_steps[:365], seasonal_weekly[:365], label='Haftalık', linewidth=2)
-    plt.title('🔄 Mevsimsel Bileşenler', fontweight='bold')
+    plt.title('Mevsimsel Bileşenler', fontweight='bold')
     plt.xlabel('Zaman')
     plt.ylabel('Değer')
     plt.legend()
@@ -465,14 +465,14 @@ def gru_time_series_example():
     plt.axhline(y=0, color='black', linestyle='-', alpha=0.5)
     plt.axhline(y=0.1, color='red', linestyle='--', alpha=0.5)
     plt.axhline(y=-0.1, color='red', linestyle='--', alpha=0.5)
-    plt.title('📈 Otokorelasyon Fonksiyonu', fontweight='bold')
+    plt.title('Otokorelasyon Fonksiyonu', fontweight='bold')
     plt.xlabel('Lag')
     plt.ylabel('Korelasyon')
     plt.grid(True, alpha=0.3)
     
     plt.subplot(3, 2, 5)
     plt.plot(time_steps, volatility, 'r-', linewidth=1, alpha=0.7)
-    plt.title('📊 Volatilite Evrimi', fontweight='bold')
+    plt.title('Volatilite Evrimi', fontweight='bold')
     plt.xlabel('Zaman')
     plt.ylabel('Volatilite')
     plt.grid(True, alpha=0.3)
@@ -480,7 +480,7 @@ def gru_time_series_example():
     plt.subplot(3, 2, 6)
     returns = np.diff(ts_data)
     plt.plot(returns, 'g-', linewidth=0.5, alpha=0.7)
-    plt.title('📈 Getiriler (First Differences)', fontweight='bold')
+    plt.title('Getiriler (First Differences)', fontweight='bold')
     plt.xlabel('Zaman')
     plt.ylabel('Getiri')
     plt.grid(True, alpha=0.3)
@@ -654,7 +654,7 @@ def gru_time_series_example():
     
     # Görselleştirme
     fig, axes = plt.subplots(3, 2, figsize=(16, 12))
-    fig.suptitle('🌀 GRU Model Karşılaştırması', fontsize=16, fontweight='bold')
+    fig.suptitle('GRU Model Karşılaştırması', fontsize=16, fontweight='bold')
     
     # Training histories
     colors = ['blue', 'red', 'green']
@@ -664,7 +664,7 @@ def gru_time_series_example():
         axes[0, 0].plot(history.history['val_loss'], color=colors[i], 
                        linestyle='--', label=f'{name} Val', linewidth=2)
     
-    axes[0, 0].set_title('📉 Training Loss', fontweight='bold')
+    axes[0, 0].set_title('Training Loss', fontweight='bold')
     axes[0, 0].set_xlabel('Epoch')
     axes[0, 0].set_ylabel('Loss')
     axes[0, 0].legend()
@@ -678,7 +678,7 @@ def gru_time_series_example():
         axes[0, 1].plot(history.history['val_mae'], color=colors[i], 
                        linestyle='--', label=f'{name} Val', linewidth=2)
     
-    axes[0, 1].set_title('📊 Training MAE', fontweight='bold')
+    axes[0, 1].set_title('Training MAE', fontweight='bold')
     axes[0, 1].set_xlabel('Epoch')
     axes[0, 1].set_ylabel('MAE')
     axes[0, 1].legend()
@@ -697,7 +697,7 @@ def gru_time_series_example():
     bars2 = axes[1, 0].bar(x + width/2, rmse_values, width,
                           label='RMSE', alpha=0.7, color='red')
     
-    axes[1, 0].set_title('🎯 Test Performance', fontweight='bold')
+    axes[1, 0].set_title('Test Performance', fontweight='bold')
     axes[1, 0].set_xlabel('Model')
     axes[1, 0].set_ylabel('Error')
     axes[1, 0].set_xticks(x)
@@ -716,7 +716,7 @@ def gru_time_series_example():
         axes[1, 1].annotate(name, (times[i], mae_values[i]),
                            xytext=(5, 5), textcoords='offset points')
     
-    axes[1, 1].set_title('⏱️ Training Time vs Performance', fontweight='bold')
+    axes[1, 1].set_title('Training Time vs Performance', fontweight='bold')
     axes[1, 1].set_xlabel('Training Time (s)')
     axes[1, 1].set_ylabel('Test MAE')
     axes[1, 1].grid(True, alpha=0.3)
@@ -741,7 +741,7 @@ def gru_time_series_example():
         ax.fill_between(steps, actual - 0.02, actual + 0.02, 
                        alpha=0.2, color='blue', label='Confidence')
         
-        ax.set_title(f'🔮 Sample {i+1}: {FORECAST}-Step Forecast', fontweight='bold')
+        ax.set_title(f'Sample {i+1}: {FORECAST}-Step Forecast', fontweight='bold')
         ax.set_xlabel('Forecast Step')
         ax.set_ylabel('Normalized Value')
         ax.legend()

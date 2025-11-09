@@ -1,0 +1,158 @@
+🚀 Gelişmiş LSTM Modeli - Teknik İndikatörler ile
+==================================================
+
+📊 Finansal veri oluşturuluyor...
+📈 Teknik indikatörler hesaplanıyor...
+📋 Toplam özellik sayısı: 25
+✅ Eklenen indikatörler:
+   • SMA (10, 30)
+   • EMA (12, 26)
+   • RSI
+   • MACD
+   • Bollinger Bands
+   • Stochastic
+   • Volume Indicators
+   • Volatility
+
+🔧 LSTM için veri hazırlanıyor...
+📊 Veri boyutları: X=(1111, 60, 24), y=(1111,)
+🎯 Özellik sayısı: 24
+
+🤖 LSTM modeli oluşturuluyor...
+2025-11-09 16:55:22.460749: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+📚 Model eğitiliyor...
+Epoch 1/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 2s 38ms/step - loss: 0.0499 - mae: 0.1569 - val_loss: 2.9000e-04 - val_mae: 0.0136
+Epoch 2/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 28ms/step - loss: 0.0074 - mae: 0.0639 - val_loss: 6.1562e-04 - val_mae: 0.0207
+Epoch 3/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0051 - mae: 0.0529 - val_loss: 3.0370e-04 - val_mae: 0.0142
+Epoch 4/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0040 - mae: 0.0460 - val_loss: 6.2555e-04 - val_mae: 0.0215
+Epoch 5/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0038 - mae: 0.0462 - val_loss: 2.5778e-04 - val_mae: 0.0128
+Epoch 6/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0047 - mae: 0.0509 - val_loss: 1.4683e-04 - val_mae: 0.0100
+Epoch 7/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0032 - mae: 0.0425 - val_loss: 0.0010 - val_mae: 0.0271
+Epoch 8/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0033 - mae: 0.0409 - val_loss: 4.1818e-04 - val_mae: 0.0163
+Epoch 9/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0032 - mae: 0.0410 - val_loss: 7.1328e-04 - val_mae: 0.0205
+Epoch 10/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0026 - mae: 0.0380 - val_loss: 3.1693e-04 - val_mae: 0.0142
+Epoch 11/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0026 - mae: 0.0373 - val_loss: 3.4788e-04 - val_mae: 0.0154
+Epoch 12/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0025 - mae: 0.0363 - val_loss: 5.2851e-04 - val_mae: 0.0198
+Epoch 13/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0031 - mae: 0.0419 - val_loss: 5.4917e-04 - val_mae: 0.0197
+Epoch 14/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0026 - mae: 0.0373 - val_loss: 0.0013 - val_mae: 0.0316
+Epoch 15/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0028 - mae: 0.0389 - val_loss: 4.0237e-04 - val_mae: 0.0159
+Epoch 16/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0024 - mae: 0.0369 - val_loss: 3.6062e-04 - val_mae: 0.0156
+Epoch 17/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0023 - mae: 0.0345 - val_loss: 4.0481e-04 - val_mae: 0.0162
+Epoch 18/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0022 - mae: 0.0346 - val_loss: 4.8307e-04 - val_mae: 0.0179
+Epoch 19/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0019 - mae: 0.0317 - val_loss: 0.0014 - val_mae: 0.0342
+Epoch 20/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0021 - mae: 0.0341 - val_loss: 3.9839e-04 - val_mae: 0.0172
+Epoch 21/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0016 - mae: 0.0297 - val_loss: 2.0014e-04 - val_mae: 0.0115
+Epoch 22/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0017 - mae: 0.0316 - val_loss: 7.6627e-04 - val_mae: 0.0230
+Epoch 23/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0023 - mae: 0.0351 - val_loss: 0.0016 - val_mae: 0.0350
+Epoch 24/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0022 - mae: 0.0352 - val_loss: 2.9193e-04 - val_mae: 0.0142
+Epoch 25/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0015 - mae: 0.0296 - val_loss: 4.3131e-04 - val_mae: 0.0164
+Epoch 26/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0016 - mae: 0.0300 - val_loss: 4.7125e-04 - val_mae: 0.0180
+Epoch 27/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0016 - mae: 0.0315 - val_loss: 3.1783e-04 - val_mae: 0.0145
+Epoch 28/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 29ms/step - loss: 0.0018 - mae: 0.0307 - val_loss: 2.3566e-04 - val_mae: 0.0124
+Epoch 29/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0016 - mae: 0.0297 - val_loss: 4.3736e-04 - val_mae: 0.0168
+Epoch 30/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0015 - mae: 0.0289 - val_loss: 2.7059e-04 - val_mae: 0.0137
+Epoch 31/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0016 - mae: 0.0298 - val_loss: 3.3715e-04 - val_mae: 0.0148
+Epoch 32/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0014 - mae: 0.0275 - val_loss: 6.0633e-04 - val_mae: 0.0208
+Epoch 33/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0014 - mae: 0.0279 - val_loss: 2.2563e-04 - val_mae: 0.0123
+Epoch 34/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0016 - mae: 0.0298 - val_loss: 8.3919e-04 - val_mae: 0.0245
+Epoch 35/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0015 - mae: 0.0295 - val_loss: 3.0833e-04 - val_mae: 0.0148
+Epoch 36/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0014 - mae: 0.0284 - val_loss: 7.7294e-04 - val_mae: 0.0243
+Epoch 37/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0014 - mae: 0.0277 - val_loss: 2.7691e-04 - val_mae: 0.0135
+Epoch 38/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0015 - mae: 0.0294 - val_loss: 0.0013 - val_mae: 0.0287
+Epoch 39/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0013 - mae: 0.0276 - val_loss: 3.4713e-04 - val_mae: 0.0151
+Epoch 40/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0013 - mae: 0.0272 - val_loss: 5.9429e-04 - val_mae: 0.0194
+Epoch 41/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0012 - mae: 0.0257 - val_loss: 3.5464e-04 - val_mae: 0.0154
+Epoch 42/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0013 - mae: 0.0271 - val_loss: 2.6561e-04 - val_mae: 0.0132
+Epoch 43/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0013 - mae: 0.0272 - val_loss: 9.5560e-04 - val_mae: 0.0270
+Epoch 44/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0017 - mae: 0.0314 - val_loss: 2.7371e-04 - val_mae: 0.0135
+Epoch 45/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0013 - mae: 0.0282 - val_loss: 7.1121e-04 - val_mae: 0.0236
+Epoch 46/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0015 - mae: 0.0290 - val_loss: 7.1996e-04 - val_mae: 0.0227
+Epoch 47/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0015 - mae: 0.0291 - val_loss: 3.5991e-04 - val_mae: 0.0154
+Epoch 48/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0012 - mae: 0.0275 - val_loss: 3.9652e-04 - val_mae: 0.0165
+Epoch 49/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0012 - mae: 0.0259 - val_loss: 5.7166e-04 - val_mae: 0.0210
+Epoch 50/50
+23/23 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0014 - mae: 0.0290 - val_loss: 3.0762e-04 - val_mae: 0.0142
+
+🔮 Tahminler yapılıyor...
+28/28 ━━━━━━━━━━━━━━━━━━━━ 1s 16ms/step 
+7/7 ━━━━━━━━━━━━━━━━━━━━ 0s 11ms/step
+
+📊 PERFORMANS METRİKLERİ
+==============================
+Train MSE: 0.008969
+Test MSE:  0.030246
+Train MAE: 0.080729
+Test MAE:  0.153381
+Train MAPE: 0.08%
+Test MAPE:  0.15%
+Model Doğruluğu: 99.85%
+
+🔍 ÖZELLİK ÖNEMİ ANALİZİ
+==============================
+En önemli özellikler (korelasyon bazlı):
+ 1. close          : 1.0000
+ 2. open           : 1.0000
+ 3. sma_10         : 0.9938
+ 4. ema_12         : 0.9910
+ 5. bb_middle      : 0.9730
+ 6. bb_lower       : 0.9662
+ 7. bb_upper       : 0.9653
+ 8. ema_26         : 0.9568
+ 9. sma_30         : 0.9373
+10. low            : 0.9196
+
+💾 Model kaydediliyor...
+
+✅ Gelişmiş LSTM modeli başarıyla oluşturuldu!
+🎯 Final Model Doğruluğu: 99.85%
+📊 Kullanılan özellik sayısı: 24

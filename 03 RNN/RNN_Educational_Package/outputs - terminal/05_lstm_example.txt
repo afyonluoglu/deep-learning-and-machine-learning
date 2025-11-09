@@ -87,40 +87,69 @@ Model: "sequential"
 📋 MODEL EĞİTİMİ
 =======================================================
 🚀 LSTM modeli eğitiliyor...
+🔖 En iyi model 'c:\Users\ASUS\Desktop\Python with AI\Yapay Zeka - AI Traning Kits\03 RNN\RNN_Educational_Package\best_lstm_model.keras' dosyasına kaydedilecek.
 Epoch 1/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 3s 42ms/step - loss: 0.0643 - mae: 0.2036 - val_loss: 0.0514 - val_mae: 0.1955 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 3s 45ms/step - loss: 0.0644 - mae: 0.2016 - val_loss: 0.0518 - val_mae: 0.1951 - learning_rate: 0.0010
 Epoch 2/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0276 - mae: 0.1341 - val_loss: 0.0327 - val_mae: 0.1491 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0252 - mae: 0.1279 - val_loss: 0.0510 - val_mae: 0.1955 - learning_rate: 0.0010
 Epoch 3/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0224 - mae: 0.1210 - val_loss: 0.0258 - val_mae: 0.1308 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 33ms/step - loss: 0.0217 - mae: 0.1206 - val_loss: 0.0363 - val_mae: 0.1598 - learning_rate: 0.0010
 Epoch 4/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0206 - mae: 0.1167 - val_loss: 0.0254 - val_mae: 0.1302 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0187 - mae: 0.1128 - val_loss: 0.0371 - val_mae: 0.1627 - learning_rate: 0.0010
 Epoch 5/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0185 - mae: 0.1107 - val_loss: 0.0253 - val_mae: 0.1314 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 33ms/step - loss: 0.0177 - mae: 0.1093 - val_loss: 0.0315 - val_mae: 0.1486 - learning_rate: 0.0010
 Epoch 6/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0111 - mae: 0.0843 - val_loss: 0.0059 - val_mae: 0.0615 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0163 - mae: 0.1048 - val_loss: 0.0406 - val_mae: 0.1772 - learning_rate: 0.0010
 Epoch 7/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0091 - mae: 0.0750 - val_loss: 0.0066 - val_mae: 0.0655 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0136 - mae: 0.0934 - val_loss: 0.0244 - val_mae: 0.1397 - learning_rate: 0.0010
 Epoch 8/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0079 - mae: 0.0711 - val_loss: 0.0066 - val_mae: 0.0660 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 33ms/step - loss: 0.0093 - mae: 0.0767 - val_loss: 0.0233 - val_mae: 0.1380 - learning_rate: 0.0010
 Epoch 9/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0075 - mae: 0.0688 - val_loss: 0.0091 - val_mae: 0.0798 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 33ms/step - loss: 0.0083 - mae: 0.0724 - val_loss: 0.0157 - val_mae: 0.1102 - learning_rate: 0.0010
 Epoch 10/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0073 - mae: 0.0682 - val_loss: 0.0067 - val_mae: 0.0664 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0075 - mae: 0.0687 - val_loss: 0.0148 - val_mae: 0.1056 - learning_rate: 0.0010
 Epoch 11/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0071 - mae: 0.0668 - val_loss: 0.0080 - val_mae: 0.0735 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0075 - mae: 0.0689 - val_loss: 0.0153 - val_mae: 0.1072 - learning_rate: 0.0010
 Epoch 12/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0068 - mae: 0.0655 - val_loss: 0.0082 - val_mae: 0.0751 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 34ms/step - loss: 0.0078 - mae: 0.0701 - val_loss: 0.0134 - val_mae: 0.0996 - learning_rate: 0.0010
 Epoch 13/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0065 - mae: 0.0637 - val_loss: 0.0071 - val_mae: 0.0686 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0072 - mae: 0.0666 - val_loss: 0.0162 - val_mae: 0.1131 - learning_rate: 0.0010
 Epoch 14/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 30ms/step - loss: 0.0066 - mae: 0.0643 - val_loss: 0.0064 - val_mae: 0.0643 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0066 - mae: 0.0651 - val_loss: 0.0190 - val_mae: 0.1229 - learning_rate: 0.0010
 Epoch 15/100
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0065 - mae: 0.0640 - val_loss: 0.0102 - val_mae: 0.0859 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 33ms/step - loss: 0.0069 - mae: 0.0655 - val_loss: 0.0110 - val_mae: 0.0897 - learning_rate: 0.0010
 Epoch 16/100
-19/21 ━━━━━━━━━━━━━━━━━━━━ 0s 27ms/step - loss: 0.0059 - mae: 0.0608
-Epoch 16: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
-21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0060 - mae: 0.0615 - val_loss: 0.0100 - val_mae: 0.0834 - learning_rate: 0.0010
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 33ms/step - loss: 0.0068 - mae: 0.0650 - val_loss: 0.0066 - val_mae: 0.0652 - learning_rate: 0.0010
+Epoch 17/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0066 - mae: 0.0644 - val_loss: 0.0123 - val_mae: 0.0957 - learning_rate: 0.0010
+Epoch 18/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 31ms/step - loss: 0.0066 - mae: 0.0645 - val_loss: 0.0127 - val_mae: 0.0959 - learning_rate: 0.0010
+Epoch 19/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0062 - mae: 0.0626 - val_loss: 0.0081 - val_mae: 0.0739 - learning_rate: 0.0010
+Epoch 20/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 34ms/step - loss: 0.0066 - mae: 0.0641 - val_loss: 0.0059 - val_mae: 0.0610 - learning_rate: 0.0010
+Epoch 21/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0069 - mae: 0.0655 - val_loss: 0.0068 - val_mae: 0.0659 - learning_rate: 0.0010
+Epoch 22/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0061 - mae: 0.0625 - val_loss: 0.0095 - val_mae: 0.0802 - learning_rate: 0.0010
+Epoch 23/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0063 - mae: 0.0632 - val_loss: 0.0207 - val_mae: 0.1297 - learning_rate: 0.0010
+Epoch 24/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0062 - mae: 0.0628 - val_loss: 0.0173 - val_mae: 0.1171 - learning_rate: 0.0010
+Epoch 25/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 32ms/step - loss: 0.0060 - mae: 0.0618 - val_loss: 0.0190 - val_mae: 0.1243 - learning_rate: 0.0010
+Epoch 26/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 58ms/step - loss: 0.0061 - mae: 0.0620 - val_loss: 0.0086 - val_mae: 0.0769 - learning_rate: 0.0010
+Epoch 27/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 57ms/step - loss: 0.0057 - mae: 0.0599 - val_loss: 0.0110 - val_mae: 0.0892 - learning_rate: 0.0010
+Epoch 28/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 55ms/step - loss: 0.0057 - mae: 0.0591 - val_loss: 0.0096 - val_mae: 0.0817 - learning_rate: 0.0010
+Epoch 29/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 56ms/step - loss: 0.0056 - mae: 0.0589 - val_loss: 0.0125 - val_mae: 0.0969 - learning_rate: 0.0010
+Epoch 30/100
+21/21 ━━━━━━━━━━━━━━━━━━━━ 0s 47ms/step - loss: 0.0058 - mae: 0.0608
+Epoch 30: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+21/21 ━━━━━━━━━━━━━━━━━━━━ 1s 55ms/step - loss: 0.0056 - mae: 0.0595 - val_loss: 0.0112 - val_mae: 0.0910 - learning_rate: 0.0010
 ✅ Eğitim tamamlandı!
 =======================================================
 📋 MODEL DEĞERLENDİRME
@@ -128,22 +157,22 @@ Epoch 16: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
 🔮 Tahminler hesaplanıyor...
 
 📊 Eğitim Metrikleri:
-   MSE :  143.357537
-   MAE :  9.6482
-   RMSE: 11.9732
-   MAPE: 7.06%
+   MSE :  124.425437
+   MAE :  8.9242
+   RMSE: 11.1546
+   MAPE: 6.81%
 
 📊 Validasyon Metrikleri:
-   MSE :  157.980597
-   MAE :  10.1369
-   RMSE: 12.5690
-   MAPE: 5.24%
+   MSE :  105.805162
+   MAE :  8.1404
+   RMSE: 10.2862
+   MAPE: 4.25%
 
 📊 Test Metrikleri:
-   MSE :  117.130984
-   MAE :  8.5055
-   RMSE: 10.8227
-   MAPE: 4.48%
+   MSE :  119.201527
+   MAE :  8.5463
+   RMSE: 10.9179
+   MAPE: 4.49%
 =======================================================
 📋 SONUÇLARI GÖRSELLEŞTİRME
 =======================================================
@@ -151,11 +180,11 @@ Epoch 16: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
 📋 MULTI-STEP PREDICTION ANALİZİ
 =======================================================
 🔮 Çok adımlı tahmin analizi...
-📅 Gün 1: MAE=8.12, RMSE=10.16, MAPE=4.52%
-📅 Gün 2: MAE=8.25, RMSE=10.50, MAPE=4.62%
-📅 Gün 3: MAE=8.00, RMSE=10.23, MAPE=4.46%
-📅 Gün 4: MAE=8.92, RMSE=11.10, MAPE=4.97%
-📅 Gün 5: MAE=9.49, RMSE=11.73, MAPE=5.26%
+📅 Gün 1: MAE=7.95, RMSE=10.11, MAPE=4.44%
+📅 Gün 2: MAE=10.58, RMSE=12.43, MAPE=5.68%
+📅 Gün 3: MAE=8.99, RMSE=11.10, MAPE=4.92%
+📅 Gün 4: MAE=10.85, RMSE=12.67, MAPE=5.82%
+📅 Gün 5: MAE=10.94, RMSE=12.92, MAPE=5.87%
 =======================================================
 📋 GERÇEK ZAMAN TAHMİNİ ÖRNEĞİ
 =======================================================
@@ -174,11 +203,11 @@ Epoch 16: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
    Gün -1: $202.47
 
 🔮 Gelecek 5 günün tahminleri:
-   Gün +1: $194.89
-   Gün +2: $191.39
-   Gün +3: $190.15
-   Gün +4: $191.95
-   Gün +5: $189.69
+   Gün +1: $199.57
+   Gün +2: $192.37
+   Gün +3: $194.55
+   Gün +4: $188.05
+   Gün +5: $186.19
 =======================================================
 📋 ÖZET VE SONUÇLAR
 =======================================================
@@ -197,8 +226,8 @@ Epoch 16: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
   ✅ Multi-step prediction yapabilir
 
 📈 Model performansı:
-  • Test MAE: 8.51$
-  • Test MAPE: 4.48%
+  • Test MAE: 8.55$
+  • Test MAPE: 4.49%
   • Model, ortalama 4.5% hata ile tahmin yapıyor
 
 🔄 Model iyileştirme önerileri:

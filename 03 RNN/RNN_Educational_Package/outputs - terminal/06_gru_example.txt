@@ -1,0 +1,226 @@
+======================================================================
+🌀 GRU ÖRNEĞİ - GATED RECURRENT UNIT
+======================================================================
+
+==================================================
+📋 GRU TEORİSİ VE MATEMATİK
+==================================================
+🧠 GRU (Gated Recurrent Unit) Nedir?
+----------------------------------------
+• LSTM'e alternatif olarak geliştirilmiş
+• Daha basit yapı (2 gate vs LSTM'in 3 gate'i)
+• Daha az parametre, daha hızlı eğitim
+• Çoğu durumda LSTM ile benzer performans
+
+🚪 GRU GATE MEKANİZMALARI:
+------------------------------
+1️⃣ RESET GATE (r_t):
+   r_t = σ(W_r · [h_t-1, x_t] + b_r)
+   → Geçmiş bilgiyi ne kadar unutacağını kontrol eder
+
+2️⃣ UPDATE GATE (z_t):
+   z_t = σ(W_z · [h_t-1, x_t] + b_z)
+   → Yeni bilgiyi ne kadar alacağını kontrol eder
+
+3️⃣ CANDIDATE HIDDEN STATE (h̃_t):
+   h̃_t = tanh(W_h · [r_t ⊙ h_t-1, x_t] + b_h)
+   → Yeni bilgi adayı
+
+4️⃣ FINAL HIDDEN STATE (h_t):
+   h_t = (1 - z_t) ⊙ h_t-1 + z_t ⊙ h̃_t
+   → Eski ve yeni bilgiyi karıştır
+🚪 Gate Açıklamaları:
+--------------------
+1. 🔄 Reset Gate: Geçmiş bilgiyi ne kadar görmezden geleceğini kontrol eder
+2. 🔄 Update Gate: Yeni bilgiyi ne kadar güncelleyeceğini kontrol eder
+3. 🧠 Candidate: Reset edilmiş geçmiş + mevcut giriş
+4. 🎯 Final: Eski ve yeni bilgiyi karıştırır
+
+==================================================
+📋 GRU vs LSTM DETAYILI KARŞILAŞTIRMA
+==================================================
+📊 Farklı zorluk seviyelerinde veri setleri oluşturuluyor...
+🏗️ Modelleri eğitiyoruz ve karşılaştırıyoruz...
+
+📊 Short Term Dataset (10 adım):
+   🔧 GRU eğitiliyor...
+
+      ✅ Accuracy: 0.9200, Time: 3.8s
+   🔧 LSTM eğitiliyor...
+      ✅ Accuracy: 0.9100, Time: 2.6s
+
+📊 Medium Term Dataset (25 adım):
+   🔧 GRU eğitiliyor...
+      ✅ Accuracy: 0.4800, Time: 3.3s
+   🔧 LSTM eğitiliyor...
+      ✅ Accuracy: 0.9150, Time: 3.0s
+
+📊 Long Term Dataset (50 adım):
+   🔧 GRU eğitiliyor...
+      ✅ Accuracy: 0.4800, Time: 4.2s
+   🔧 LSTM eğitiliyor...
+      ✅ Accuracy: 0.4600, Time: 4.1s
+
+
+==================================================
+📋 GRU PRAKTİK UYGULAMA: ZAMAN SERİSİ TAHMİNİ
+==================================================
+📊 Karmaşık zaman serisi verisi oluşturuluyor...
+✅ 2000 noktalık zaman serisi oluşturuldu
+
+
+🔧 GRU için veri hazırlığı...
+📊 Sequence'ler oluşturuldu:
+   X shape: (1931, 60, 1)
+   y shape: (1931, 10)
+📊 Veri bölümleme:
+   Train: 1351 (70.0%)
+   Validation: 289 (15.0%)
+   Test: 291 (15.1%)
+
+🏗️ Gelişmiş GRU modeli oluşturuluyor...
+
+✅ Basic GRU: 15,274 parameters
+✅ Stacked GRU: 48,618 parameters
+✅ Bidirectional GRU: 32,106 parameters
+
+🚀 Modeller eğitiliyor...
+
+📊 Basic GRU eğitiliyor...
+   ✅ Tamamlandı (44.6s)
+   📊 Final val_loss: 0.003598
+   📊 Final val_mae: 0.047933
+
+📊 Stacked GRU eğitiliyor...
+   ✅ Tamamlandı (118.3s)
+   📊 Final val_loss: 0.003685
+   📊 Final val_mae: 0.048135
+
+📊 Bidirectional GRU eğitiliyor...
+   ✅ Tamamlandı (54.6s)
+   📊 Final val_loss: 0.003734
+   📊 Final val_mae: 0.048193
+
+📊 MODEL PERFORMANS KARŞILAŞTIRMASI:
+============================================================
+
+Basic GRU:
+   MSE: 0.003647
+   MAE: 0.048469
+   RMSE: 0.060392
+   Training Time: 44.6s
+   Parameters: 15,274
+
+Stacked GRU:
+   MSE: 0.003888
+   MAE: 0.049666
+   RMSE: 0.062351
+   Training Time: 118.3s
+   Parameters: 48,618
+
+Bidirectional GRU:
+   MSE: 0.003949
+   MAE: 0.050115
+   RMSE: 0.062844
+   Training Time: 54.6s
+   Parameters: 32,106
+
+🏆 EN İYİ MODEL: Basic GRU
+   MAE: 0.048469
+
+
+==================================================
+📋 GRU PRAKTİK İPUÇLARI VE ÖNERİLER
+==================================================
+💡 GRU KULLANIM ÖNERİLERİ:
+------------------------------
+
+✅ GRU NE ZAMAN KULLANILMALI?
+• LSTM'e göre daha az parametre gerektiğinde
+• Hızlı prototipleme ve iterasyon
+• Sınırlı hesaplama kaynakları
+• Mobil/edge deployment
+• Orta uzunlukta sequence'ler (10-100 adım)
+• LSTM ile benzer performans, daha basit model
+
+❌ GRU NE ZAMAN KULLANILMAMALI?
+• Çok karmaşık long-term dependencies
+• Çok uzun sequence'ler (>200 adım)
+• Hassas memory kontrolü gerektiğinde
+• Research odaklı projeler (LSTM daha yaygın)
+
+🔧 GRU OPTİMİZASYON İPUÇLARI:
+1. **Dropout kullanın**: Özellikle recurrent_dropout
+2. **Gradient clipping**: Exploding gradients için
+3. **Learning rate scheduling**: Adaptive öğrenme
+4. **Batch normalization**: Stabil eğitim
+5. **Bidirectional**: Tam context için
+6. **Stacking**: Daha derin representation
+
+📊 HİPERPARAMETRE REHBERİ:
+
+🎛️ GRU HİPERPARAMETRE REHBERİ:
+
+📈 UNITS (Hidden Size):
+   • Kısa seq.: 16-64
+   • Orta seq.: 64-128
+   • Uzun seq.: 128-512
+
+⏱️ SEQUENCE LENGTH:
+   • Min: 10-20 adım
+   • Optimal: 30-100 adım
+   • Max: 200+ (dikkatli)
+
+📚 BATCH SIZE:
+   • Küçük data: 16-32
+   • Büyük data: 64-128
+   • Memory limit: 256+
+
+🧠 LEARNING RATE:
+   • Başlangıç: 0.001
+   • Fine-tuning: 0.0001
+   • Schedule: ReduceLROnPlateau
+
+🎯 DROPOUT:
+   • Standard: 0.1-0.3
+   • Recurrent: 0.1-0.2
+   • Dense layers: 0.2-0.5
+
+
+==================================================
+📋 ÖZET VE SONUÇLAR
+==================================================
+✅ Bu GRU modülünde öğrendikleriniz:
+  1. 🌀 GRU mimarisi ve gate mekanizmaları
+  2. 📊 LSTM ile detaylı karşılaştırma
+  3. ⚖️ Performans vs karmaşıklık trade-off'u
+  4. 🏗️ Farklı GRU varyantları (Stacked, Bidirectional)
+  5. 📈 Zaman serisi tahmininde pratik uygulama
+  6. 🔧 Hiperparametre optimizasyon teknikleri
+  7. 💡 Kullanım alanları ve sınırları
+
+🏆 PERFORMANS ÖZETİ:
+   En iyi model: Basic GRU
+   Test MAE: 0.048469
+   Training time: 44.6s
+
+💡 Ana çıkarımlar:
+  • GRU genellikle LSTM kadar iyi performans gösterir
+  • %25-30 daha az parametre kullanır
+  • Daha hızlı eğitir ve deploy eder
+  • Çoğu zaman series problemi için yeterli
+  • LSTM'e göre daha basit ve anlaşılır
+
+🚀 İyileştirme önerileri:
+  1. Attention mechanism eklemek
+  2. Ensemble modeller kullanmak
+  3. External features dahil etmek
+  4. Advanced regularization (DropConnect)
+  5. Custom loss functions
+
+📚 Sonraki modül: 08_sentiment_analysis.py
+RNN ile doğal dil işleme öğreneceğiz!
+
+======================================================================
+✅ GRU ÖRNEĞİ TAMAMLANDI!
+======================================================================

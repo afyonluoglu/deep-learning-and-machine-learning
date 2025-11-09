@@ -9,7 +9,7 @@ nasıl sequential pattern'leri öğrendiğini gösterir.
 Öğreneceğiniz konular:
 1. Character-level text processing
 2. One-hot encoding
-3. Text generation with RNN
+3. Text generation with RNN 
 4. Temperature sampling
 5. Model creativity control
 """
@@ -354,7 +354,7 @@ plt.figure(figsize=(15, 10))
 # Loss grafiği
 plt.subplot(2, 2, 1)
 plt.plot(history.history['loss'], 'b-', linewidth=2)
-plt.title('📉 Model Eğitim Loss', fontweight='bold')
+plt.title('Model Eğitim Loss', fontweight='bold')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
 plt.grid(True, alpha=0.3)
@@ -370,7 +370,7 @@ top_chars = sorted(char_freq.items(), key=lambda x: x[1], reverse=True)[:10]
 chars_list, freqs_list = zip(*top_chars)
 
 plt.bar(range(len(chars_list)), freqs_list, alpha=0.7)
-plt.title('📊 En Sık Kullanılan Karakterler', fontweight='bold')
+plt.title('En Sık Kullanılan Karakterler', fontweight='bold')
 plt.xlabel('Karakterler')
 plt.ylabel('Frekans')
 plt.xticks(range(len(chars_list)), chars_list)
@@ -388,7 +388,7 @@ for temp in temp_values:
     diversities.append(analysis['diversity'])
 
 plt.plot(temp_values, diversities, 'ro-', linewidth=2, markersize=8)
-plt.title('🌡️ Temperature vs Çeşitlilik', fontweight='bold')
+plt.title('Temperature vs Çeşitlilik', fontweight='bold')
 plt.xlabel('Temperature')
 plt.ylabel('Karakter Çeşitliliği')
 plt.grid(True, alpha=0.3)
@@ -399,7 +399,7 @@ layers = ['LSTM-1', 'Dropout-1', 'LSTM-2', 'Dropout-2', 'Dense']
 params = [128*4*128, 0, 128*4*128, 0, 128*n_vocab]  # Yaklaşık parametre sayıları
 
 plt.bar(layers, params, alpha=0.7, color=['blue', 'gray', 'blue', 'gray', 'green'])
-plt.title('🏗️ Model Katman Parametreleri', fontweight='bold')
+plt.title('Model Katman Parametreleri', fontweight='bold')
 plt.xlabel('Katmanlar')
 plt.ylabel('Parametre Sayısı')
 plt.xticks(rotation=45)

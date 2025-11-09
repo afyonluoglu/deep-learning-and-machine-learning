@@ -98,27 +98,27 @@ print(f"Data with indicators: {len(stock_data)} days")
 
 # Visualization
 fig, axes = plt.subplots(2, 2, figsize=(15, 10))
-fig.suptitle('📊 Stock Analysis', fontsize=16, fontweight='bold')
+fig.suptitle('Stock Analysis', fontsize=16, fontweight='bold')
 
 axes[0, 0].plot(stock_data['Date'], stock_data['Close'], 'b-', alpha=0.8)
 axes[0, 0].plot(stock_data['Date'], stock_data['SMA_20'], 'r--', alpha=0.7, label='SMA 20')
-axes[0, 0].set_title('📈 Price with SMA', fontweight='bold')
+axes[0, 0].set_title('Price with SMA', fontweight='bold')
 axes[0, 0].legend()
 axes[0, 0].grid(True, alpha=0.3)
 
 daily_returns = stock_data['Close'].pct_change().dropna()
 axes[0, 1].hist(daily_returns, bins=30, alpha=0.7, color='green')
-axes[0, 1].set_title('📊 Daily Returns', fontweight='bold')
+axes[0, 1].set_title('Daily Returns', fontweight='bold')
 axes[0, 1].grid(True, alpha=0.3)
 
 axes[1, 0].plot(stock_data['Date'], stock_data['RSI'], 'purple')
 axes[1, 0].axhline(y=70, color='r', linestyle='--', alpha=0.7)
 axes[1, 0].axhline(y=30, color='g', linestyle='--', alpha=0.7)
-axes[1, 0].set_title('📊 RSI', fontweight='bold')
+axes[1, 0].set_title('RSI', fontweight='bold')
 axes[1, 0].grid(True, alpha=0.3)
 
 axes[1, 1].plot(stock_data['Date'], stock_data['MACD'], 'orange')
-axes[1, 1].set_title('📈 MACD', fontweight='bold')
+axes[1, 1].set_title('MACD', fontweight='bold')
 axes[1, 1].grid(True, alpha=0.3)
 
 plt.tight_layout()
@@ -224,13 +224,13 @@ best_model = min(results.keys(), key=lambda x: results[x]['mse'])
 print(f"🏆 Best Model: {best_model}")
 
 fig, axes = plt.subplots(2, 2, figsize=(15, 10))
-fig.suptitle('📊 Stock Prediction Results', fontsize=16, fontweight='bold')
+fig.suptitle('Stock Prediction Results', fontsize=16, fontweight='bold')
 
 model_names = list(results.keys())
 mse_values = [results[name]['mse'] for name in model_names]
 
 bars = axes[0, 0].bar(model_names, mse_values, color=['blue', 'green', 'red'], alpha=0.7)
-axes[0, 0].set_title('📉 Model MSE Comparison', fontweight='bold')
+axes[0, 0].set_title('Model MSE Comparison', fontweight='bold')
 axes[0, 0].tick_params(axis='x', rotation=45)
 axes[0, 0].grid(True, alpha=0.3)
 
@@ -238,7 +238,7 @@ best_pred = results[best_model]['predictions']
 axes[0, 1].scatter(y_test, best_pred, alpha=0.6)
 min_val, max_val = y_test.min(), y_test.max()
 axes[0, 1].plot([min_val, max_val], [min_val, max_val], 'r--')
-axes[0, 1].set_title(f'🎯 {best_model}: Actual vs Predicted', fontweight='bold')
+axes[0, 1].set_title(f'{best_model}: Actual vs Predicted', fontweight='bold')
 axes[0, 1].set_xlabel('Actual')
 axes[0, 1].set_ylabel('Predicted')
 axes[0, 1].grid(True, alpha=0.3)
@@ -246,14 +246,14 @@ axes[0, 1].grid(True, alpha=0.3)
 n_show = min(100, len(y_test))
 axes[1, 0].plot(range(n_show), y_test[:n_show], 'b-', label='Actual', alpha=0.8)
 axes[1, 0].plot(range(n_show), best_pred[:n_show], 'r-', label='Predicted', alpha=0.8)
-axes[1, 0].set_title(f'📈 First {n_show} Test Predictions', fontweight='bold')
+axes[1, 0].set_title(f'First {n_show} Test Predictions', fontweight='bold')
 axes[1, 0].legend()
 axes[1, 0].grid(True, alpha=0.3)
 
 errors = y_test - best_pred.flatten()
 axes[1, 1].hist(errors, bins=25, alpha=0.7, color='orange')
 axes[1, 1].axvline(x=0, color='red', linestyle='--')
-axes[1, 1].set_title('📊 Prediction Errors', fontweight='bold')
+axes[1, 1].set_title('Prediction Errors', fontweight='bold')
 axes[1, 1].grid(True, alpha=0.3)
 
 plt.tight_layout()

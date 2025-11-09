@@ -1,4 +1,15 @@
- ======================================================================
+📦 Gerekli kütüphaneler kontrol ediliyor...
+--------------------------------------------------
+✅ numpy kütüphanesi zaten yüklü
+✅ pandas kütüphanesi zaten yüklü
+✅ tensorflow kütüphanesi zaten yüklü
+✅ matplotlib kütüphanesi zaten yüklü
+✅ scikit-learn kütüphanesi zaten yüklü
+✅ pygame kütüphanesi zaten yüklü
+🚀 Tüm kütüphaneler hazır! Program başlatılıyor...
+-------------------------------------------------- 
+
+======================================================================
           DEEP LEARNING EĞİTİM PROGRAMI  - TensorFlow Keras
 ======================================================================
 

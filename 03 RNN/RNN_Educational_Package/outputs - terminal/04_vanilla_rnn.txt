@@ -27,10 +27,10 @@ Burada:
 🔄 RNN Forward Pass:
    t=0: x_t=[ 0.00000000,  1.00000000]   h_t=[ 0.03141439, -0.14029881, -0.02257379, -0.14151855]    y_t=[-0.006]
    t=1: x_t=[ 0.47942554,  0.87758256]   h_t=[-0.04047334, -0.17745187,  0.04896420, -0.08215594]    y_t=[-0.008]
-   t=2: x_t=[ 0.84147098,  0.54030231]   h_t=[-0.07699334, -0.14515213,  0.10457704, -0.04212641]    y_t=[-0.011]
-   t=3: x_t=[ 0.99749499,  0.07073720]   h_t=[-0.09993191, -0.08189796,  0.13659638,  0.00689628]    y_t=[-0.011]
-   t=4: x_t=[ 0.90929743, -0.41614684]   h_t=[-0.09878444,  0.00256436,  0.13542632,  0.05467806]    y_t=[-0.008]
-   t=5: x_t=[ 0.59847214, -0.80114362]   h_t=[-0.07350123,  0.08642288,  0.10140755,  0.08863570]    y_t=[-0.003]
+   t=2: x_t=[ 0.84147098,  0.54030231]   h_t=[-0.07699334, -0.14515213,  0.10457704, -0.04212641]    y_t=[-0.011]        
+   t=3: x_t=[ 0.99749499,  0.07073720]   h_t=[-0.09993191, -0.08189796,  0.13659638,  0.00689628]    y_t=[-0.011]        
+   t=4: x_t=[ 0.90929743, -0.41614684]   h_t=[-0.09878444,  0.00256436,  0.13542632,  0.05467806]    y_t=[-0.008]        
+   t=5: x_t=[ 0.59847214, -0.80114362]   h_t=[-0.07350123,  0.08642288,  0.10140755,  0.08863570]    y_t=[-0.003]        
    t=6: x_t=[ 0.14112001, -0.98999250]   h_t=[-0.03017246,  0.14841287,  0.04232185,  0.10086835]    y_t=[0.002]
    t=7: x_t=[-0.35078323, -0.93645669]   h_t=[ 0.02065054,  0.17397632, -0.02745283,  0.08872135]    y_t=[0.007]
 =======================================================
@@ -44,9 +44,9 @@ Model compiled... 20 sequence length
 Model compiled... 50 sequence length
 Model compiled... 100 sequence length
 📊 Sonuçlar:
-   • Kısa sequence (5): Gradient norm = 2.230025
-   • Uzun sequence (100): Gradient norm = 1.144261
-   • Gradient azalma oranı: 5.13e-01
+   • Kısa sequence (5): Gradient norm = 0.844094
+   • Uzun sequence (100): Gradient norm = 1.062250
+   • Gradient azalma oranı: 1.26e+00
 =======================================================
 📋 VANILLA RNN vs LSTM vs GRU KARŞILAŞTIRMA
 =======================================================
@@ -64,16 +64,16 @@ Model compiled... 100 sequence length
    • Loss Algorithm : binary_crossentropy
    • Metrics        : ['accuracy']
    📊 Vanilla RNN...
-   • Eğitim süresi: 4.43 saniye
+   • Eğitim süresi: 5.55 saniye
    📊 LSTM...
-   • Eğitim süresi: 5.45 saniye
+   • Eğitim süresi: 5.84 saniye
    📊 GRU...
-   • Eğitim süresi: 5.75 saniye
+   • Eğitim süresi: 5.89 saniye
 ✅ Tüm modeller eğitildi!
    • Final Validation Accuracy:
-    Vanilla RNN final validation accuracy: 0.9900
+    Vanilla RNN final validation accuracy: 1.0000
            LSTM final validation accuracy: 1.0000
-            GRU final validation accuracy: 1.0000
+            GRU final validation accuracy: 0.4450
    • Model Complexity:
          Vanilla RNN parameter count: 1,633
                 LSTM parameter count: 4,897
@@ -82,8 +82,8 @@ Model compiled... 100 sequence length
 -----------------------------------
 
 Vanilla RNN:
-   Final Validation Loss    : 0.0272
-   Final Validation Accuracy: 0.9900
+   Final Validation Loss    : 0.0009
+   Final Validation Accuracy: 1.0000
    Parameters               : 1,633
 
 LSTM:
@@ -92,11 +92,11 @@ LSTM:
    Parameters               : 4,897
 
 GRU:
-   Final Validation Loss    : 0.0191
-   Final Validation Accuracy: 1.0000
+   Final Validation Loss    : 0.7062
+   Final Validation Accuracy: 0.4450
    Parameters               : 3,905
 
-🏆 EN İYİ MODEL: LSTM
+🏆 EN İYİ MODEL: Vanilla RNN
    Accuracy: 1.0000
 =======================================================
 📋 VANILLA RNN KULLANIM ÖNERİLERİ
@@ -139,9 +139,9 @@ Basic Model   : Input (35,1) -> SimpleRNN(20) -> Dense(1)
 Improved Model: Input (35,1) -> SimpleRNN(20, dropout=0.2) -> Dense(10, relu) -> Dropout(0.2) -> Dense(1)
 📊 Modeller eğitiliyor...
 📊 SONUÇLAR:
-   Basit Model         : 0.7100
+   Basit Model         : 0.7300
    İyileştirilmiş Model: 0.7350
-   İyileştirme         : +2.50%
+   İyileştirme         : +0.50%
 =======================================================
 📋 ÖZET VE SONUÇLAR
 =======================================================

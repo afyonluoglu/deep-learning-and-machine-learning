@@ -1,0 +1,79 @@
+🚀 Ensemble LSTM + Risk Management Sistemi
+==================================================
+
+📊 Rejim değişiklikli finansal veri oluşturuluyor...
+📋 Veri boyutu: (1200, 6)
+📈 Rejim dağılımı:
+regime
+bull        609
+sideways    578
+bear         13
+Name: count, dtype: int64
+
+🔧 Ensemble için veri hazırlanıyor...
+📊 Train: 666, Val: 222, Test: 223
+
+🤖 Ensemble modelleri eğitiliyor...
+
+📚 Deep_LSTM eğitiliyor...
+2025-11-09 16:57:18.799577: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+✅ Deep_LSTM - Val Loss: 0.000640
+
+📚 Wide_LSTM eğitiliyor...
+✅ Wide_LSTM - Val Loss: 0.000287
+
+📚 GRU_Model eğitiliyor...
+✅ GRU_Model - Val Loss: 0.000244
+
+📚 Simple_LSTM eğitiliyor...
+✅ Simple_LSTM - Val Loss: 0.000269
+
+📚 BiLSTM eğitiliyor...
+✅ BiLSTM - Val Loss: 0.000306
+
+🎯 Model Ağırlıkları:
+   Deep_LSTM: 0.0969
+   Wide_LSTM: 0.2159
+   GRU_Model: 0.2541
+   Simple_LSTM: 0.2304
+   BiLSTM: 0.2027
+
+🔮 Ensemble tahminleri yapılıyor...
+
+📊 ENSEMBLE PERFORMANS METRİKLERİ
+========================================
+Ensemble MSE:  85.350366
+Ensemble MAE:  7.775280
+Ensemble MAPE: 3.24%
+Ensemble Doğruluğu: 96.76%
+
+🤖 BİREYSEL MODEL PERFORMANSLARI
+========================================
+Deep_LSTM   : MSE=107.870811, MAE=8.400442, MAPE=3.49%
+Wide_LSTM   : MSE=116.877362, MAE=9.457278, MAPE=3.96%
+GRU_Model   : MSE=70.161601, MAE=6.969635, MAPE=2.91%
+Simple_LSTM : MSE=67.415490, MAE=6.760885, MAPE=2.81%
+BiLSTM      : MSE=93.762460, MAE=8.358045, MAPE=3.50%
+
+⚠️  RİSK ANALİZİ
+==============================
+Risk Metrikleri:
+  VaR (5%):           -0.0235 (Gerçek), -0.0090 (Tahmin)
+  CVaR (5%):          -0.0279 (Gerçek), -0.0106 (Tahmin)
+  Volatilite (Yıllık): 0.2455 (Gerçek), 0.0950 (Tahmin)
+  Sharpe Ratio:       1.8035 (Gerçek), 3.6653 (Tahmin)
+  Max Drawdown:       -0.1256 (Gerçek), -0.0883 (Tahmin)
+  Tahmin Hatası Std:  0.0176
+
+💰 POZİSYON BÜYÜKLÜĞÜ ÖNERİLERİ
+========================================
+Risk Toleransı %1: Ortalama Pozisyon Büyüklüğü = %0.68
+Risk Toleransı %2: Ortalama Pozisyon Büyüklüğü = %1.36
+Risk Toleransı %5: Ortalama Pozisyon Büyüklüğü = %3.39
+
+💾 Ensemble modeli kaydediliyor...
+
+✅ Ensemble LSTM + Risk Management sistemi tamamlandı!
+🎯 Final Ensemble Doğruluğu: 96.76%
+🏆 En iyi bireysel model performansından daha iyi!
