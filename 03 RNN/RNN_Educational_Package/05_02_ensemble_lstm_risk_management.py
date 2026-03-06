@@ -589,7 +589,10 @@ def main():
     # 9. Modelleri kaydet  
     print("\n💾 Ensemble modeli kaydediliyor...")
     for name, model in ensemble.models.items():
-        model.save(f'ensemble_{name.lower()}.keras')
+        import os
+        CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+        keras_file = os.path.join(CURRENT_DIR, f'ensemble_{name.lower()}.keras')        
+        model.save(keras_file)
     
     print("\n✅ Ensemble LSTM + Risk Management sistemi tamamlandı!")
     print(f"🎯 Final Ensemble Doğruluğu: {100 - ensemble_mape:.2f}%")

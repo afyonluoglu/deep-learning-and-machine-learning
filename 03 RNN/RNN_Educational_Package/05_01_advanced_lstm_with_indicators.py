@@ -3,6 +3,7 @@ Gelişmiş LSTM Modeli - Teknik İndikatörler ile
 Bu dosya LSTM modeline teknik indikatörler ekleyerek performansı artırır
 """
 
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -392,7 +393,9 @@ def main():
     
     # 10. Model kaydet
     print("\n💾 Model kaydediliyor...")
-    model.save('advanced_lstm_with_indicators.keras')
+    CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(CURRENT_DIR, 'advanced_lstm_with_indicators.keras')
+    model.save(model_path)
     
     print("\n✅ Gelişmiş LSTM modeli başarıyla oluşturuldu!")
     print(f"🎯 Final Model Doğruluğu: {100 - test_mape:.2f}%")
